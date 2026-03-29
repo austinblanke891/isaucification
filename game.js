@@ -151,25 +151,87 @@ const resultStrengths = document.getElementById("result-strengths");
 const resultWeaknesses = document.getElementById("result-weaknesses");
 const resultReview = document.getElementById("result-review");
 
-const nextFrame = () => new Promise(requestAnimationFrame);
+const nextFrame = () => new Promise((resolve) => requestAnimationFrame(resolve));
+
+async function waitForFonts() {
+  if (document.fonts && document.fonts.ready) {
+    try {
+      await document.fonts.ready;
+    } catch (error) {
+      console.warn("Font loading issue:", error);
+    }
+  }
+}
+
+async function waitForImages(container) {
+  const images = Array.from(container.querySelectorAll("img"));
+
+  await Promise.all(
+    images.map(async (img) => {
+      if (!img.src) return;
+
+      if (img.complete && img.naturalWidth > 0) return;
+
+      if (img.decode) {
+        try {
+          await img.decode();
+          return;
+        } catch (error) {}
+      }
+
+      await new Promise((resolve) => {
+        const done = () => resolve();
+        img.addEventListener("load", done, { once: true });
+        img.addEventListener("error", done, { once: true });
+      });
+    })
+  );
+}
+
+function resetGeneratedImageStyles() {
+  resultFlatImage.style.width = "";
+  resultFlatImage.style.height = "";
+  resultFlatImage.style.maxWidth = "";
+  resultFlatImage.style.display = "";
+}
 
 async function buildResultImage() {
   resultCardRender.classList.remove("hidden");
+  resultImageCard.classList.add("hidden");
+  resetGeneratedImageStyles();
 
   await waitForFonts();
   await waitForImages(resultCardRender);
-  await nextFrame(); // 🔥 KEY FIX
+
+  await nextFrame();
+  await nextFrame();
+
+  const rect = resultCardRender.getBoundingClientRect();
+  const cardWidth = Math.round(rect.width);
+  const cardHeight = Math.round(rect.height);
 
   const canvas = await html2canvas(resultCardRender, {
-    backgroundColor: "#d9edee",
-    scale: Math.min(window.devicePixelRatio || 2, 3),
+    backgroundColor: null,
+    scale: Math.min(window.devicePixelRatio || 2, 2),
     useCORS: true,
-    logging: false
+    logging: false,
+    width: cardWidth,
+    height: cardHeight,
+    windowWidth: document.documentElement.clientWidth,
+    windowHeight: document.documentElement.clientHeight
   });
 
   resultFlatImage.src = canvas.toDataURL("image/png");
-  resultImageCard.classList.remove("hidden");
+  resultFlatImage.alt = "";
+  resultFlatImage.width = cardWidth;
+  resultFlatImage.height = cardHeight;
+  resultFlatImage.style.width = `${cardWidth}px`;
+  resultFlatImage.style.height = `${cardHeight}px`;
+  resultFlatImage.style.maxWidth = "100%";
+  resultFlatImage.style.display = "block";
+
   resultCardRender.classList.add("hidden");
+  resultImageCard.classList.remove("hidden");
 }
 
 startBtn.addEventListener("click", () => {
@@ -188,6 +250,7 @@ function renderScene() {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.textContent = choice.text;
+    btn.type = "button";
     btn.onclick = () => handleChoice(choice);
     choicesContainer.appendChild(btn);
   });
@@ -198,8 +261,9 @@ function handleChoice(choice) {
     state.scores[key] += choice.points[key];
   });
 
-  if (choice.next === "result") showResult();
-  else {
+  if (choice.next === "result") {
+    showResult();
+  } else {
     state.currentScene = choice.next;
     renderScene();
   }
@@ -223,8 +287,11 @@ async function showResult() {
 
   resultCardRender.classList.remove("hidden");
   resultImageCard.classList.add("hidden");
+  resultFlatImage.removeAttribute("src");
+  resetGeneratedImageStyles();
 
   resultImage.src = result.image;
+  resultImage.alt = result.name;
   resultName.textContent = result.name;
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
@@ -233,16 +300,28 @@ async function showResult() {
   resultWeaknesses.textContent = result.weaknesses;
   resultReview.textContent = result.review;
 
-  await buildResultImage();
+  try {
+    await buildResultImage();
+  } catch (error) {
+    console.error("Could not build result image:", error);
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 restartBtn.addEventListener("click", () => {
   state.currentScene = "start";
-  Object.keys(state.scores).forEach((k) => (state.scores[k] = 0));
+
+  Object.keys(state.scores).forEach((key) => {
+    state.scores[key] = 0;
+  });
 
   resultCardRender.classList.remove("hidden");
   resultImageCard.classList.add("hidden");
+  resultFlatImage.removeAttribute("src");
+  resetGeneratedImageStyles();
 
   resultScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
