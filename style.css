@@ -1,102 +1,321 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  />
-  <title>What Sauce Are You?</title>
+:root {
+  --bg: #efe9db;
+  --card: #fffaf2;
+  --ink: #3c2f2f;
+  --accent: #b85c38;
+  --accent-dark: #8f4124;
+  --muted: #7b6a58;
+  --line: #d8cdbd;
+  --result-bg: #d9edee;
+  --shadow: 0 16px 40px rgba(60, 47, 47, 0.12);
+  --radius: 24px;
+}
 
-  <meta name="theme-color" content="#efe9db" />
+* {
+  box-sizing: border-box;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="game-shell">
-    <section id="start-screen" class="screen">
-      <div class="question-card start-card">
-        <h1>What Sauce Are You?</h1>
-        <p class="subtitle">a slightly dramatic pasta personality test</p>
-        <button id="start-btn" class="main-btn" type="button">Start</button>
-      </div>
-    </section>
+body {
+  min-height: 100vh;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(180deg, #f7f1e6 0%, var(--bg) 100%);
+  color: var(--ink);
+}
 
-    <section id="game-screen" class="screen hidden">
-      <div class="question-card">
-        <h2 id="scene-title"></h2>
-        <p id="scene-text"></p>
-        <div id="choices" class="choices"></div>
-      </div>
-    </section>
+img {
+  display: block;
+  max-width: 100%;
+}
 
-    <section id="result-screen" class="screen hidden">
-      <p class="result-top-text">
-        Drumroll... here is your Sauce ID! Press and hold the image to save it.
-      </p>
+button {
+  font: inherit;
+}
 
-      <!-- Hidden card used only for rendering the PNG -->
-      <div id="result-card-render" class="profile-card render-card">
-        <div class="profile-header">
-          <div class="profile-title">Sauce ID</div>
-          <h1 id="result-name" class="profile-name"></h1>
-        </div>
+.hidden {
+  display: none !important;
+}
 
-        <div class="profile-main">
-          <div class="profile-image-wrap">
-            <img id="result-image" class="result-image" alt="" />
-          </div>
+.game-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px 40px;
+}
 
-          <div class="profile-box">
-            <h3>Strengths</h3>
-            <p id="result-strengths"></p>
+.screen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-            <h3>Weaknesses</h3>
-            <p id="result-weaknesses"></p>
-          </div>
-        </div>
+.question-card,
+.profile-card,
+.result-image-card {
+  width: min(100%, 700px);
+  background: var(--card);
+  border: 2px solid rgba(184, 92, 56, 0.15);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
-        <div class="profile-quote">
-          <p id="result-description"></p>
-        </div>
+.question-card {
+  padding: 32px 24px;
+  text-align: center;
+}
 
-        <div class="profile-stats">
-          <p id="result-traits"></p>
-          <p id="result-extra"></p>
-        </div>
+.start-card h1,
+.profile-name {
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 0.5px;
+}
 
-        <div class="profile-reviews">
-          <h3>Peer reviews</h3>
-          <p id="result-review"></p>
-        </div>
-      </div>
+.start-card h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  line-height: 0.95;
+}
 
-      <!-- This is the ONLY thing the user should save -->
-      <div id="result-image-card" class="result-image-card hidden">
-        <img
-          id="result-flat-image"
-          class="result-flat-image"
-          alt=""
-          draggable="false"
-        />
-      </div>
+.subtitle {
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
 
-      <div class="result-actions">
-        <button id="restart-btn" class="main-btn secondary-btn" type="button">
-          Play again
-        </button>
-      </div>
-    </section>
-  </main>
+#scene-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-family: "Patrick Hand", cursive;
+  line-height: 1;
+}
 
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="game.js"></script>
-</body>
-</html>
+#scene-text {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.choices {
+  display: grid;
+  gap: 12px;
+}
+
+.main-btn,
+.choice-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.main-btn {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(184, 92, 56, 0.28);
+}
+
+.main-btn:hover,
+.choice-btn:hover {
+  transform: translateY(-1px);
+}
+
+.main-btn:active,
+.choice-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background: #fff;
+  color: var(--accent-dark);
+  border: 2px solid rgba(184, 92, 56, 0.22);
+  box-shadow: none;
+}
+
+.choice-btn {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--line);
+  font-weight: 600;
+}
+
+.choice-btn:hover {
+  border-color: var(--accent);
+  background: #fff8f3;
+}
+
+.result-top-text {
+  width: min(100%, 700px);
+  margin: 0 0 14px;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+#result-screen {
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card {
+  background: var(--result-bg);
+  padding: 28px;
+  color: #2f3737;
+}
+
+.render-card {
+  width: 700px;
+}
+
+.profile-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-title {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 3rem;
+  line-height: 0.95;
+}
+
+.profile-main {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.profile-image-wrap,
+.profile-box,
+.profile-quote,
+.profile-stats,
+.profile-reviews {
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(47, 55, 55, 0.08);
+  border-radius: 22px;
+}
+
+.profile-image-wrap {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.result-image {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+.profile-box,
+.profile-quote,
+.profile-stats,
+.profile-reviews {
+  padding: 18px;
+}
+
+.profile-box h3,
+.profile-reviews h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.profile-box p,
+.profile-quote p,
+.profile-stats p,
+.profile-reviews p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.profile-box p,
+#result-strengths,
+#result-weaknesses {
+  white-space: pre-line;
+}
+
+.profile-box h3 + p {
+  margin-bottom: 14px;
+}
+
+.profile-quote {
+  margin-bottom: 14px;
+}
+
+.profile-quote p {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.profile-stats {
+  margin-bottom: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.result-image-card {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.result-flat-image {
+  width: min(100%, 700px);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.result-actions {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .question-card {
+    padding: 24px 18px;
+  }
+
+  .profile-card {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .render-card {
+    width: 100%;
+  }
+
+  .profile-main {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-name {
+    font-size: 2.35rem;
+  }
+}
