@@ -1,30 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Sauce Are You?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
   <main class="game-shell">
 
-    <!-- START SCREEN -->
     <section id="start-screen" class="screen">
       <h1>What Sauce Are You?</h1>
       <p class="subtitle">a slightly dramatic pasta personality test</p>
       <button id="start-btn" class="main-btn">Start</button>
     </section>
 
-    <!-- GAME SCREEN -->
     <section id="game-screen" class="screen hidden">
       <h2 id="scene-title"></h2>
       <p id="scene-text"></p>
       <div id="choices" class="choices"></div>
     </section>
 
-    <!-- RESULT SCREEN -->
     <section id="result-screen" class="screen hidden">
       <h2>You are...</h2>
-
-      <img id="result-image" class="result-image" />
-
+      <img id="result-image" class="result-image" alt="" />
       <h1 id="result-name"></h1>
       <p id="result-description"></p>
       <p id="result-traits" class="traits"></p>
-
       <button id="restart-btn" class="main-btn">Play again</button>
     </section>
 
@@ -32,3 +34,4 @@
 
   <script src="game.js"></script>
 </body>
+</html>
