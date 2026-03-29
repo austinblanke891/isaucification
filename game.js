@@ -223,10 +223,12 @@ async function buildResultImage() {
 
   resultFlatImage.src = canvas.toDataURL("image/png");
   resultFlatImage.alt = "";
-  resultFlatImage.width = cardWidth;
-  resultFlatImage.height = cardHeight;
-  resultFlatImage.style.width = `${cardWidth}px`;
-  resultFlatImage.style.height = `${cardHeight}px`;
+  resultFlatImage.src = canvas.toDataURL("image/png");
+  resultFlatImage.alt = "";
+
+  // Let CSS handle sizing (fixes iPhone stretching)
+  resultFlatImage.style.width = "";
+  resultFlatImage.style.height = "";
   resultFlatImage.style.maxWidth = "100%";
   resultFlatImage.style.display = "block";
 
