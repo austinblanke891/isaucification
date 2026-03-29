@@ -5,37 +5,44 @@ const sauceResults = {
   marinara: {
     name: "Marinara",
     description: "You are reliable, warm, and universally liked. People trust you without knowing why.",
-    traits: "classic • grounded • dependable"
+    traits: "classic • grounded • dependable",
+    image: "images/MarinaraProfile.png"
   },
   alfredo: {
     name: "Alfredo",
     description: "You are comfort in human form. A little indulgent, a little dramatic, and deeply loved.",
-    traits: "cozy • rich • affectionate"
+    traits: "cozy • rich • affectionate",
+    image: "images/AlfredoProfile.png"
   },
   pesto: {
     name: "Pesto",
     description: "You are creative, fresh, and slightly unpredictable.",
-    traits: "artsy • spontaneous • magnetic"
+    traits: "artsy • spontaneous • magnetic",
+    image: "images/PestoProfile.png"
   },
   carbonara: {
     name: "Carbonara",
     description: "You are particular, confident, and quietly intense.",
-    traits: "refined • stubborn • precise"
+    traits: "refined • stubborn • precise",
+    image: "images/CarbonaraProfile.png"
   },
   bolognese: {
     name: "Bolognese",
     description: "You are deep, patient, and layered.",
-    traits: "complex • thoughtful • slow-burning"
+    traits: "complex • thoughtful • slow-burning",
+    image: "images/BologneseProfile.png"
   },
   arrabbiata: {
     name: "Arrabbiata",
     description: "You are intense, expressive, and slightly chaotic.",
-    traits: "fiery • dramatic • loud"
+    traits: "fiery • dramatic • loud",
+    image: "images/ArrabbiataProfile.png"
   },
   puttanesca: {
     name: "Puttanesca",
     description: "You are chaotic, bold, and iconic in a questionable way.",
-    traits: "chaotic • wild • magnetic"
+    traits: "chaotic • wild • magnetic",
+    image: "images/PuttanescaProfile.png"
   }
 };
 
@@ -182,6 +189,7 @@ const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
 const choicesContainer = document.getElementById("choices");
 
+const resultImage = document.getElementById("result-image");
 const resultName = document.getElementById("result-name");
 const resultDescription = document.getElementById("result-description");
 const resultTraits = document.getElementById("result-traits");
@@ -210,9 +218,7 @@ function renderScene() {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.textContent = choice.text;
-
     btn.onclick = () => handleChoice(choice);
-
     choicesContainer.appendChild(btn);
   });
 }
@@ -252,6 +258,8 @@ function showResult() {
   gameScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
 
+  resultImage.src = result.image;
+  resultImage.alt = result.name;
   resultName.textContent = result.name;
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
