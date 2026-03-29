@@ -180,6 +180,7 @@ const scenes = {
 // ----------------------
 const startBtn = document.getElementById("start-btn");
 const restartBtn = document.getElementById("restart-btn");
+const downloadBtn = document.getElementById("download-btn");
 
 const startScreen = document.getElementById("start-screen");
 const gameScreen = document.getElementById("game-screen");
@@ -264,6 +265,24 @@ function showResult() {
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
 }
+
+// ----------------------
+// DOWNLOAD PROFILE
+// ----------------------
+downloadBtn.addEventListener("click", async () => {
+  const card = document.getElementById("result-card");
+  const resultTitle = document.getElementById("result-name").textContent || "sauce-profile";
+
+  const canvas = await html2canvas(card, {
+    backgroundColor: "#f7f2ea",
+    scale: 2
+  });
+
+  const link = document.createElement("a");
+  link.download = `${resultTitle.toLowerCase()}-profile.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+});
 
 // ----------------------
 // RESTART
