@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Quicksand:wght@400;600;700&display=swap');
-
 * {
   box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -9,14 +11,27 @@ body {
   font-family: "Quicksand", Arial, sans-serif;
   background: #efe9db;
   color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
 }
 
 .game-shell {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 20px;
+  padding: 28px 16px 36px;
 }
 
 .screen {
@@ -34,13 +49,9 @@ h2,
 h3,
 .profile-title,
 .choice-btn,
-.main-btn {
+.main-btn,
+.result-top-text {
   font-family: "Gloria Hallelujah", "Comic Sans MS", cursive;
-}
-
-p {
-  font-size: 18px;
-  line-height: 1.4;
 }
 
 h1,
@@ -50,13 +61,18 @@ p {
   margin-top: 0;
 }
 
+p {
+  font-size: 18px;
+  line-height: 1.45;
+}
+
 h1 {
-  font-size: 42px;
+  font-size: clamp(34px, 5vw, 42px);
   margin-bottom: 12px;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: clamp(24px, 4vw, 28px);
   margin-bottom: 14px;
 }
 
@@ -67,12 +83,17 @@ h2 {
 }
 
 .question-card {
-  max-width: 560px;
+  width: min(100%, 560px);
   margin: 0 auto;
   background: #c9e6c2;
   border: 4px solid #222;
-  padding: 32px 24px;
+  padding: 28px 20px;
   box-shadow: 8px 8px 0 #222;
+}
+
+.start-card {
+  padding-top: 34px;
+  padding-bottom: 34px;
 }
 
 .choices {
@@ -92,6 +113,8 @@ h2 {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 4px 4px 0 #222;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  touch-action: manipulation;
 }
 
 .choice-btn:hover,
@@ -113,18 +136,17 @@ h2 {
   font-size: 18px;
   margin-bottom: 16px;
   font-weight: bold;
-  font-family: "Gloria Hallelujah", "Comic Sans MS", cursive;
 }
 
 .profile-card {
-  width: 100%;
-  max-width: 700px;
+  width: min(100%, 700px);
   margin: 0 auto;
   background: #d9edee;
   border: 4px solid #222;
   padding: 0 0 18px;
   box-shadow: 8px 8px 0 #222;
   text-align: center;
+  overflow: hidden;
 }
 
 .profile-header {
@@ -134,17 +156,20 @@ h2 {
 }
 
 .profile-title {
-  font-size: 30px;
+  font-size: clamp(22px, 4vw, 30px);
   margin-bottom: 6px;
 }
 
 .profile-name {
-  font-size: 40px;
+  font-size: clamp(34px, 7vw, 40px);
   margin: 0;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .profile-main {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
   align-items: stretch;
@@ -160,8 +185,7 @@ h2 {
 }
 
 .profile-image-wrap {
-  flex: 1;
-  min-width: 220px;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,18 +196,18 @@ h2 {
 .result-image {
   width: 100%;
   max-width: 240px;
-  display: block;
+  height: auto;
 }
 
 .profile-box {
-  flex: 1;
+  min-width: 0;
   padding: 18px;
   text-align: center;
 }
 
 .profile-box h3,
 .profile-reviews h3 {
-  font-size: 22px;
+  font-size: clamp(20px, 4vw, 22px);
   margin-bottom: 8px;
 }
 
@@ -204,6 +228,13 @@ h2 {
   padding: 16px 18px;
 }
 
+.profile-quote p:last-child,
+.profile-stats p:last-child,
+.profile-reviews p:last-child,
+.profile-box p:last-child {
+  margin-bottom: 0;
+}
+
 .result-actions {
   display: flex;
   justify-content: center;
@@ -213,20 +244,67 @@ h2 {
 }
 
 @media (max-width: 700px) {
+  .game-shell {
+    align-items: flex-start;
+    padding-top: 18px;
+  }
+
   .profile-main {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .profile-title {
-    font-size: 24px;
+  .question-card {
+    box-shadow: 6px 6px 0 #222;
   }
 
-  .profile-name {
-    font-size: 34px;
+  .profile-card {
+    box-shadow: 6px 6px 0 #222;
   }
 
   .choice-btn,
   .main-btn {
     font-size: 16px;
+  }
+
+  .profile-quote,
+  .profile-stats,
+  .profile-reviews {
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 14px;
+  }
+
+  .profile-main {
+    padding: 14px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  p {
+    font-size: 16px;
+  }
+
+  .result-top-text {
+    font-size: 16px;
+  }
+
+  .question-card,
+  .profile-header,
+  .profile-box,
+  .profile-quote,
+  .profile-stats,
+  .profile-reviews,
+  .profile-image-wrap {
+    border-width: 3px;
+  }
+
+  .profile-card {
+    border-width: 3px;
+  }
+
+  .choice-btn,
+  .main-btn {
+    border-width: 3px;
   }
 }

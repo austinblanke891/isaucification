@@ -2,17 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
   <title>What Sauce Are You?</title>
+
+  <meta name="theme-color" content="#efe9db" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="game-shell">
-
     <section id="start-screen" class="screen">
-      <h1>What Sauce Are You?</h1>
-      <p class="subtitle">a slightly dramatic pasta personality test</p>
-      <button id="start-btn" class="main-btn">Start</button>
+      <div class="question-card start-card">
+        <h1>What Sauce Are You?</h1>
+        <p class="subtitle">a slightly dramatic pasta personality test</p>
+        <button id="start-btn" class="main-btn" type="button">Start</button>
+      </div>
     </section>
 
     <section id="game-screen" class="screen hidden">
@@ -64,11 +78,14 @@
       </div>
 
       <div class="result-actions">
-        <button id="download-btn" class="main-btn">Download profile</button>
-        <button id="restart-btn" class="main-btn secondary-btn">Play again</button>
+        <button id="download-btn" class="main-btn" type="button">
+          Download profile
+        </button>
+        <button id="restart-btn" class="main-btn secondary-btn" type="button">
+          Play again
+        </button>
       </div>
     </section>
-
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>

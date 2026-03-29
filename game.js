@@ -69,7 +69,7 @@ const sauceResults = {
     traits: "Alignment: Good 20%, Neutral 20%, Chaotic 60%",
     extra: "Hidden talent: Thriving under total nonsense",
     strengths: "- Fearless\n- Quirky\n- Memorable\n- Weirdly resourceful",
-    weaknesses: "- Unpredictable\n- Poor impulse control\n- Will absolutely make it everyone's problem",
+    weaknesses: "- Unpredictable\n- Poor impulse control\n- Will absolutely make it everyone\'s problem",
     review: '"I do not fully understand them, but I respect the commitment." - Marinara'
   }
 };
@@ -218,14 +218,75 @@ const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
 const choicesContainer = document.getElementById("choices");
 
+const resultCard = document.getElementById("result-card");
 const resultImage = document.getElementById("result-image");
 const resultName = document.getElementById("result-name");
 const resultDescription = document.getElementById("result-description");
 const resultTraits = document.getElementById("result-traits");
 const resultExtra = document.getElementById("result-extra");
 const resultStrengths = document.getElementById("result-strengths");
-const resultWeaknesses = document.getElementById("resultWeaknesses") || document.getElementById("result-weaknesses");
+const resultWeaknesses = document.getElementById("result-weaknesses");
 const resultReview = document.getElementById("result-review");
+
+// ----------------------
+// HELPERS
+// ----------------------
+async function waitForFonts() {
+  if (document.fonts && document.fonts.ready) {
+    try {
+      await document.fonts.ready;
+    } catch (error) {
+      console.warn("Font loading check failed:", error);
+    }
+  }
+}
+
+async function waitForImages(container) {
+  const images = Array.from(container.querySelectorAll("img"));
+  await Promise.all(
+    images.map(async (img) => {
+      if (!img.src) return;
+
+      if (img.decode) {
+        try {
+          await img.decode();
+          return;
+        } catch (error) {
+          // fall through to load event
+        }
+      }
+
+      if (img.complete) return;
+
+      await new Promise((resolve) => {
+        const done = () => resolve();
+        img.addEventListener("load", done, { once: true });
+        img.addEventListener("error", done, { once: true });
+      });
+    })
+  );
+}
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+}
+
+async function exportCardImage() {
+  await waitForFonts();
+  await waitForImages(resultCard);
+
+  const scale = Math.min(window.devicePixelRatio || 1, 3);
+
+  const canvas = await html2canvas(resultCard, {
+    backgroundColor: "#d9edee",
+    scale,
+    useCORS: true,
+    logging: false
+  });
+
+  return canvas;
+}
 
 // ----------------------
 // START GAME
@@ -250,6 +311,7 @@ function renderScene() {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.textContent = choice.text;
+    btn.type = "button";
     btn.onclick = () => handleChoice(choice);
     choicesContainer.appendChild(btn);
   });
@@ -299,25 +361,74 @@ function showResult() {
   resultStrengths.textContent = result.strengths;
   resultWeaknesses.textContent = result.weaknesses;
   resultReview.textContent = result.review;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // ----------------------
 // DOWNLOAD PROFILE
 // ----------------------
 downloadBtn.addEventListener("click", async () => {
-  const card = document.getElementById("result-card");
-  const resultTitle = resultName.textContent || "sauce-profile";
+  try {
+    downloadBtn.disabled = true;
+    downloadBtn.textContent = "Preparing...";
 
-  const canvas = await html2canvas(card, {
-    backgroundColor: null,
-    scale: 2,
-    useCORS: true
-  });
+    const canvas = await exportCardImage();
+    const resultTitle = (resultName.textContent || "sauce-profile").toLowerCase();
 
-  const link = document.createElement("a");
-  link.download = `${resultTitle.toLowerCase()}-profile.png`;
-  link.href = canvas.toDataURL("image/png");
-  link.click();
+    if (isIOS()) {
+      const dataUrl = canvas.toDataURL("image/png");
+      const newTab = window.open("", "_blank");
+
+      if (newTab) {
+        newTab.document.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>${resultTitle}</title>
+              <style>
+                body {
+                  margin: 0;
+                  padding: 16px;
+                  background: #efe9db;
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                }
+                p {
+                  margin: 0 0 12px;
+                  font-size: 16px;
+                }
+                img {
+                  max-width: 100%;
+                  height: auto;
+                  border: 1px solid #ccc;
+                }
+              </style>
+            </head>
+            <body>
+              <p>Press and hold the image to save it.</p>
+              <img src="${dataUrl}" alt="${resultTitle}" />
+            </body>
+          </html>
+        `);
+        newTab.document.close();
+      } else {
+        alert("Safari blocked the image preview. Try again and allow the new tab.");
+      }
+    } else {
+      const link = document.createElement("a");
+      link.download = `${resultTitle}-profile.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong while creating the image.");
+  } finally {
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = "Download profile";
+  }
 });
 
 // ----------------------
@@ -332,4 +443,5 @@ restartBtn.addEventListener("click", () => {
 
   resultScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
