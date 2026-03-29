@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   />
   <title>What Sauce Are You?</title>
 
@@ -39,10 +39,11 @@
 
     <section id="result-screen" class="screen hidden">
       <p class="result-top-text">
-        Drumroll... here is your Sauce ID! Don't lose it!
+        Drumroll... here is your Sauce ID! Press and hold the image to save it.
       </p>
 
-      <div id="result-card" class="profile-card">
+      <!-- Hidden render card used only to generate the image -->
+      <div id="result-card-render" class="profile-card render-card">
         <div class="profile-header">
           <div class="profile-title">Sauce ID</div>
           <h1 id="result-name" class="profile-name"></h1>
@@ -77,13 +78,14 @@
         </div>
       </div>
 
+      <!-- What the user actually sees and saves -->
+      <div class="result-image-card">
+        <img id="result-flat-image" class="result-flat-image" alt="Generated sauce ID card" />
+      </div>
+
       <div class="result-actions">
-        <button id="download-btn" class="main-btn" type="button">
-          Download profile
-        </button>
-        <button id="restart-btn" class="main-btn secondary-btn" type="button">
-          Play again
-        </button>
+        <button id="download-btn" class="main-btn" type="button">Refresh image</button>
+        <button id="restart-btn" class="main-btn secondary-btn" type="button">Play again</button>
       </div>
     </section>
   </main>
