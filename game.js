@@ -224,7 +224,7 @@ const resultDescription = document.getElementById("result-description");
 const resultTraits = document.getElementById("result-traits");
 const resultExtra = document.getElementById("result-extra");
 const resultStrengths = document.getElementById("result-strengths");
-const resultWeaknesses = document.getElementById("result-weaknesses");
+const resultWeaknesses = document.getElementById("resultWeaknesses") || document.getElementById("result-weaknesses");
 const resultReview = document.getElementById("result-review");
 
 // ----------------------
@@ -244,10 +244,9 @@ function renderScene() {
 
   sceneTitle.textContent = scene.title;
   sceneText.textContent = scene.text;
-
   choicesContainer.innerHTML = "";
 
-  scene.choices.forEach(choice => {
+  scene.choices.forEach((choice) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.textContent = choice.text;
@@ -260,7 +259,7 @@ function renderScene() {
 // HANDLE CHOICE
 // ----------------------
 function handleChoice(choice) {
-  Object.keys(choice.points).forEach(key => {
+  Object.keys(choice.points).forEach((key) => {
     state.scores[key] += choice.points[key];
   });
 
@@ -279,7 +278,7 @@ function showResult() {
   let winner = "marinara";
   let max = -1;
 
-  Object.keys(state.scores).forEach(sauce => {
+  Object.keys(state.scores).forEach((sauce) => {
     if (state.scores[sauce] > max) {
       max = state.scores[sauce];
       winner = sauce;
@@ -297,8 +296,8 @@ function showResult() {
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
   resultExtra.textContent = result.extra;
-  resultStrengths.innerText = result.strengths;
-  resultWeaknesses.innerText = result.weaknesses;
+  resultStrengths.textContent = result.strengths;
+  resultWeaknesses.textContent = result.weaknesses;
   resultReview.textContent = result.review;
 }
 
@@ -307,11 +306,12 @@ function showResult() {
 // ----------------------
 downloadBtn.addEventListener("click", async () => {
   const card = document.getElementById("result-card");
-  const resultTitle = document.getElementById("result-name").textContent || "sauce-profile";
+  const resultTitle = resultName.textContent || "sauce-profile";
 
   const canvas = await html2canvas(card, {
     backgroundColor: null,
-    scale: 2
+    scale: 2,
+    useCORS: true
   });
 
   const link = document.createElement("a");
@@ -326,7 +326,7 @@ downloadBtn.addEventListener("click", async () => {
 restartBtn.addEventListener("click", () => {
   state.currentScene = "start";
 
-  Object.keys(state.scores).forEach(key => {
+  Object.keys(state.scores).forEach((key) => {
     state.scores[key] = 0;
   });
 
