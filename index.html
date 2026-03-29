@@ -17,7 +17,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <main class="game-shell">
@@ -42,7 +42,6 @@
         Drumroll... here is your Sauce ID! Press and hold the image to save it.
       </p>
 
-      <!-- Hidden card used only for rendering the PNG -->
       <div id="result-card-render" class="profile-card render-card">
         <div class="profile-header">
           <div class="profile-title">Sauce ID</div>
@@ -78,7 +77,6 @@
         </div>
       </div>
 
-      <!-- This is the ONLY thing the user should save -->
       <div id="result-image-card" class="result-image-card hidden">
         <img
           id="result-flat-image"
@@ -97,6 +95,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-  <script src="game.js"></script>
+  <script src="./game.js"></script>
 </body>
 </html>
