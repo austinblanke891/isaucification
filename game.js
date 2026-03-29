@@ -89,107 +89,40 @@ const scenes = {
     title: "You are making dinner.",
     text: "The pasta water is boiling. The vibes are fragile.",
     choices: [
-      {
-        text: "Make something classic everyone will like",
-        next: "scene2",
-        points: { marinara: 2, bolognese: 1 }
-      },
-      {
-        text: "Make something creamy and indulgent",
-        next: "scene2",
-        points: { alfredo: 2 }
-      },
-      {
-        text: "Do something creative and experimental",
-        next: "scene2",
-        points: { pesto: 2, puttanesca: 1 }
-      }
+      { text: "Make something classic everyone will like", next: "scene2", points: { marinara: 2, bolognese: 1 } },
+      { text: "Make something creamy and indulgent", next: "scene2", points: { alfredo: 2 } },
+      { text: "Do something creative and experimental", next: "scene2", points: { pesto: 2, puttanesca: 1 } }
     ]
   },
-
   scene2: {
     title: "Someone interferes.",
     text: "A friend walks in and starts touching things.",
     choices: [
-      {
-        text: "Give them a safe task",
-        next: "scene3",
-        points: { marinara: 1 }
-      },
-      {
-        text: "Let them cook and see what happens",
-        next: "scene3",
-        points: { puttanesca: 2, pesto: 1 }
-      },
-      {
-        text: "Tell them to stop immediately",
-        next: "scene3",
-        points: { carbonara: 2, arrabbiata: 1 }
-      }
+      { text: "Give them a safe task", next: "scene3", points: { marinara: 1 } },
+      { text: "Let them cook and see what happens", next: "scene3", points: { puttanesca: 2, pesto: 1 } },
+      { text: "Tell them to stop immediately", next: "scene3", points: { carbonara: 2, arrabbiata: 1 } }
     ]
   },
-
   scene3: {
     title: "A problem arises.",
     text: "Someone says: 'I don't like pasta.'",
     choices: [
-      {
-        text: "Ignore them politely",
-        next: "scene4",
-        points: { marinara: 2 }
-      },
-      {
-        text: "Make something richer to win them over",
-        next: "scene4",
-        points: { alfredo: 2 }
-      },
-      {
-        text: "Ask them to explain themselves",
-        next: "scene4",
-        points: { arrabbiata: 2 }
-      }
+      { text: "Ignore them politely", next: "scene4", points: { marinara: 2 } },
+      { text: "Make something richer to win them over", next: "scene4", points: { alfredo: 2 } },
+      { text: "Ask them to explain themselves", next: "scene4", points: { arrabbiata: 2 } }
     ]
   },
-
   scene4: {
     title: "Final moment.",
     text: "How do you want this dinner to be remembered?",
     choices: [
-      {
-        text: "Simple and perfect",
-        next: "result",
-        points: { marinara: 2 }
-      },
-      {
-        text: "Rich and comforting",
-        next: "result",
-        points: { alfredo: 2 }
-      },
-      {
-        text: "Creative and different",
-        next: "result",
-        points: { pesto: 2 }
-      },
-      {
-        text: "Technically correct",
-        next: "result",
-        points: { carbonara: 2 }
-      },
-      {
-        text: "Deep and meaningful",
-        next: "result",
-        points: { bolognese: 2 }
-      },
-      {
-        text: "Intense and unforgettable",
-        next: "result",
-        points: { arrabbiata: 2 }
-      },
-      {
-        text: "Chaotic and iconic",
-        next: "result",
-        points: { puttanesca: 3 }
-      }
+      { text: "Simple and perfect", next: "result", points: { marinara: 2 } },
+      { text: "Rich and comforting", next: "result", points: { alfredo: 2 } },
+      { text: "Creative and different", next: "result", points: { pesto: 2 } },
+      { text: "Technically correct", next: "result", points: { carbonara: 2 } },
+      { text: "Deep and meaningful", next: "result", points: { bolognese: 2 } },
+      { text: "Intense and unforgettable", next: "result", points: { arrabbiata: 2 } },
+      { text: "Chaotic and iconic", next: "result", points: { puttanesca: 3 } }
     ]
   }
 };
@@ -218,64 +151,23 @@ const resultStrengths = document.getElementById("result-strengths");
 const resultWeaknesses = document.getElementById("result-weaknesses");
 const resultReview = document.getElementById("result-review");
 
-async function waitForFonts() {
-  if (document.fonts && document.fonts.ready) {
-    try {
-      await document.fonts.ready;
-    } catch (error) {
-      console.warn("Font loading issue:", error);
-    }
-  }
-}
-
-async function waitForImages(container) {
-  const images = Array.from(container.querySelectorAll("img"));
-
-  await Promise.all(
-    images.map(async (img) => {
-      if (!img.src) return;
-
-      if (img.complete && img.naturalWidth > 0) return;
-
-      if (img.decode) {
-        try {
-          await img.decode();
-          return;
-        } catch (error) {}
-      }
-
-      await new Promise((resolve) => {
-        const done = () => resolve();
-        img.addEventListener("load", done, { once: true });
-        img.addEventListener("error", done, { once: true });
-      });
-    })
-  );
-}
+const nextFrame = () => new Promise(requestAnimationFrame);
 
 async function buildResultImage() {
   resultCardRender.classList.remove("hidden");
 
   await waitForFonts();
   await waitForImages(resultCardRender);
-
-  const cardWidth = resultCardRender.offsetWidth;
-  const cardHeight = resultCardRender.offsetHeight;
+  await nextFrame(); // 🔥 KEY FIX
 
   const canvas = await html2canvas(resultCardRender, {
     backgroundColor: "#d9edee",
     scale: Math.min(window.devicePixelRatio || 2, 3),
     useCORS: true,
-    logging: false,
-    width: cardWidth,
-    height: cardHeight,
-    windowWidth: cardWidth,
-    windowHeight: cardHeight
+    logging: false
   });
 
-  const dataUrl = canvas.toDataURL("image/png");
-  resultFlatImage.src = dataUrl;
-  resultFlatImage.alt = "";
+  resultFlatImage.src = canvas.toDataURL("image/png");
   resultImageCard.classList.remove("hidden");
   resultCardRender.classList.add("hidden");
 }
@@ -288,7 +180,6 @@ startBtn.addEventListener("click", () => {
 
 function renderScene() {
   const scene = scenes[state.currentScene];
-
   sceneTitle.textContent = scene.title;
   sceneText.textContent = scene.text;
   choicesContainer.innerHTML = "";
@@ -297,7 +188,6 @@ function renderScene() {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
     btn.textContent = choice.text;
-    btn.type = "button";
     btn.onclick = () => handleChoice(choice);
     choicesContainer.appendChild(btn);
   });
@@ -308,9 +198,8 @@ function handleChoice(choice) {
     state.scores[key] += choice.points[key];
   });
 
-  if (choice.next === "result") {
-    showResult();
-  } else {
+  if (choice.next === "result") showResult();
+  else {
     state.currentScene = choice.next;
     renderScene();
   }
@@ -334,10 +223,8 @@ async function showResult() {
 
   resultCardRender.classList.remove("hidden");
   resultImageCard.classList.add("hidden");
-  resultFlatImage.removeAttribute("src");
 
   resultImage.src = result.image;
-  resultImage.alt = result.name;
   resultName.textContent = result.name;
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
@@ -346,27 +233,16 @@ async function showResult() {
   resultWeaknesses.textContent = result.weaknesses;
   resultReview.textContent = result.review;
 
-  try {
-    await buildResultImage();
-  } catch (error) {
-    console.error("Could not build result image:", error);
-  }
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  await buildResultImage();
 }
 
 restartBtn.addEventListener("click", () => {
   state.currentScene = "start";
-
-  Object.keys(state.scores).forEach((key) => {
-    state.scores[key] = 0;
-  });
+  Object.keys(state.scores).forEach((k) => (state.scores[k] = 0));
 
   resultCardRender.classList.remove("hidden");
   resultImageCard.classList.add("hidden");
-  resultFlatImage.removeAttribute("src");
 
   resultScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
