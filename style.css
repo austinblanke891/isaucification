@@ -1,310 +1,102 @@
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>What Sauce Are You?</title>
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+  <meta name="theme-color" content="#efe9db" />
 
-body {
-  margin: 0;
-  font-family: "Quicksand", Arial, sans-serif;
-  background: #efe9db;
-  color: #222;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-img {
-  max-width: 100%;
-  display: block;
-}
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section id="start-screen" class="screen">
+      <div class="question-card start-card">
+        <h1>What Sauce Are You?</h1>
+        <p class="subtitle">a slightly dramatic pasta personality test</p>
+        <button id="start-btn" class="main-btn" type="button">Start</button>
+      </div>
+    </section>
 
-button {
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0;
-}
+    <section id="game-screen" class="screen hidden">
+      <div class="question-card">
+        <h2 id="scene-title"></h2>
+        <p id="scene-text"></p>
+        <div id="choices" class="choices"></div>
+      </div>
+    </section>
 
-.game-shell {
-  min-height: 100svh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 28px 16px 36px;
-}
+    <section id="result-screen" class="screen hidden">
+      <p class="result-top-text">
+        Drumroll... here is your Sauce ID! Press and hold the image to save it.
+      </p>
 
-.screen {
-  text-align: center;
-  width: 100%;
-  max-width: 820px;
-}
+      <!-- Hidden card used only for rendering the PNG -->
+      <div id="result-card-render" class="profile-card render-card">
+        <div class="profile-header">
+          <div class="profile-title">Sauce ID</div>
+          <h1 id="result-name" class="profile-name"></h1>
+        </div>
 
-.hidden {
-  display: none;
-}
+        <div class="profile-main">
+          <div class="profile-image-wrap">
+            <img id="result-image" class="result-image" alt="" />
+          </div>
 
-h1,
-h2,
-h3,
-.profile-title,
-.choice-btn,
-.main-btn,
-.result-top-text {
-  font-family: "Gloria Hallelujah", "Comic Sans MS", cursive;
-}
+          <div class="profile-box">
+            <h3>Strengths</h3>
+            <p id="result-strengths"></p>
 
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
+            <h3>Weaknesses</h3>
+            <p id="result-weaknesses"></p>
+          </div>
+        </div>
 
-p {
-  font-size: 18px;
-  line-height: 1.45;
-}
+        <div class="profile-quote">
+          <p id="result-description"></p>
+        </div>
 
-h1 {
-  font-size: clamp(34px, 5vw, 42px);
-  margin-bottom: 12px;
-}
+        <div class="profile-stats">
+          <p id="result-traits"></p>
+          <p id="result-extra"></p>
+        </div>
 
-h2 {
-  font-size: clamp(24px, 4vw, 28px);
-  margin-bottom: 14px;
-}
+        <div class="profile-reviews">
+          <h3>Peer reviews</h3>
+          <p id="result-review"></p>
+        </div>
+      </div>
 
-.subtitle {
-  opacity: 0.8;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
+      <!-- This is the ONLY thing the user should save -->
+      <div id="result-image-card" class="result-image-card hidden">
+        <img
+          id="result-flat-image"
+          class="result-flat-image"
+          alt=""
+          draggable="false"
+        />
+      </div>
 
-.question-card {
-  width: min(100%, 560px);
-  margin: 0 auto;
-  background: #c9e6c2;
-  border: 4px solid #222;
-  padding: 28px 20px;
-  box-shadow: 8px 8px 0 #222;
-}
+      <div class="result-actions">
+        <button id="restart-btn" class="main-btn secondary-btn" type="button">
+          Play again
+        </button>
+      </div>
+    </section>
+  </main>
 
-.start-card {
-  padding-top: 34px;
-  padding-bottom: 34px;
-}
-
-.choices {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.choice-btn,
-.main-btn {
-  font-size: 18px;
-  padding: 14px 18px;
-  border: 3px solid #222;
-  background: #f5dfab;
-  color: #222;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 4px 4px 0 #222;
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
-  touch-action: manipulation;
-}
-
-.choice-btn:hover,
-.main-btn:hover {
-  transform: translate(-1px, -1px);
-}
-
-.choice-btn:active,
-.main-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 #222;
-}
-
-.secondary-btn {
-  background: #f6f1df;
-}
-
-.result-top-text {
-  font-size: 18px;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-
-.profile-card {
-  width: min(100%, 700px);
-  margin: 0 auto;
-  background: #d9edee;
-  border: 4px solid #222;
-  padding: 0 0 18px;
-  box-shadow: 8px 8px 0 #222;
-  text-align: center;
-  overflow: hidden;
-}
-
-.profile-header {
-  background: #d2e27b;
-  border-bottom: 4px solid #222;
-  padding: 18px 18px 12px;
-}
-
-.profile-title {
-  font-size: clamp(22px, 4vw, 30px);
-  margin-bottom: 6px;
-}
-
-.profile-name {
-  font-size: clamp(34px, 7vw, 40px);
-  margin: 0;
-  line-height: 1.1;
-  word-break: break-word;
-}
-
-.profile-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 18px;
-  padding: 18px;
-  align-items: stretch;
-}
-
-.profile-image-wrap,
-.profile-box,
-.profile-quote,
-.profile-stats,
-.profile-reviews {
-  background: #d2e27b;
-  border: 4px solid #222;
-}
-
-.profile-image-wrap {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  background: #f6f6f6;
-}
-
-.result-image {
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-}
-
-.profile-box {
-  min-width: 0;
-  padding: 18px;
-  text-align: center;
-}
-
-.profile-box h3,
-.profile-reviews h3 {
-  font-size: clamp(20px, 4vw, 22px);
-  margin-bottom: 8px;
-}
-
-.profile-box p,
-.profile-quote p,
-.profile-stats p,
-.profile-reviews p {
-  font-size: 16px;
-  line-height: 1.35;
-  margin-bottom: 14px;
-  white-space: pre-line;
-}
-
-.profile-quote,
-.profile-stats,
-.profile-reviews {
-  margin: 0 18px 18px;
-  padding: 16px 18px;
-}
-
-.profile-quote p:last-child,
-.profile-stats p:last-child,
-.profile-reviews p:last-child,
-.profile-box p:last-child {
-  margin-bottom: 0;
-}
-
-.result-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 22px;
-}
-
-@media (max-width: 700px) {
-  .game-shell {
-    align-items: flex-start;
-    padding-top: 18px;
-  }
-
-  .profile-main {
-    grid-template-columns: 1fr;
-  }
-
-  .question-card {
-    box-shadow: 6px 6px 0 #222;
-  }
-
-  .profile-card {
-    box-shadow: 6px 6px 0 #222;
-  }
-
-  .choice-btn,
-  .main-btn {
-    font-size: 16px;
-  }
-
-  .profile-quote,
-  .profile-stats,
-  .profile-reviews {
-    margin-left: 14px;
-    margin-right: 14px;
-    padding: 14px;
-  }
-
-  .profile-main {
-    padding: 14px;
-    gap: 14px;
-  }
-}
-
-@media (max-width: 420px) {
-  p {
-    font-size: 16px;
-  }
-
-  .result-top-text {
-    font-size: 16px;
-  }
-
-  .question-card,
-  .profile-header,
-  .profile-box,
-  .profile-quote,
-  .profile-stats,
-  .profile-reviews,
-  .profile-image-wrap {
-    border-width: 3px;
-  }
-
-  .profile-card {
-    border-width: 3px;
-  }
-
-  .choice-btn,
-  .main-btn {
-    border-width: 3px;
-  }
-}
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

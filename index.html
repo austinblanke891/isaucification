@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Quicksand:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -42,7 +42,7 @@
         Drumroll... here is your Sauce ID! Press and hold the image to save it.
       </p>
 
-      <!-- Hidden render card used only to generate the image -->
+      <!-- Hidden card used only for rendering the PNG -->
       <div id="result-card-render" class="profile-card render-card">
         <div class="profile-header">
           <div class="profile-title">Sauce ID</div>
@@ -78,14 +78,20 @@
         </div>
       </div>
 
-      <!-- What the user actually sees and saves -->
-      <div class="result-image-card">
-        <img id="result-flat-image" class="result-flat-image" alt="Generated sauce ID card" />
+      <!-- This is the ONLY thing the user should save -->
+      <div id="result-image-card" class="result-image-card hidden">
+        <img
+          id="result-flat-image"
+          class="result-flat-image"
+          alt=""
+          draggable="false"
+        />
       </div>
 
       <div class="result-actions">
-        <button id="download-btn" class="main-btn" type="button">Refresh image</button>
-        <button id="restart-btn" class="main-btn secondary-btn" type="button">Play again</button>
+        <button id="restart-btn" class="main-btn secondary-btn" type="button">
+          Play again
+        </button>
       </div>
     </section>
   </main>
