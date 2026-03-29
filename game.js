@@ -254,22 +254,30 @@ async function waitForImages(container) {
 }
 
 async function buildResultImage() {
+  resultCardRender.classList.remove("hidden");
+
   await waitForFonts();
   await waitForImages(resultCardRender);
 
+  const cardWidth = resultCardRender.offsetWidth;
+  const cardHeight = resultCardRender.offsetHeight;
+
   const canvas = await html2canvas(resultCardRender, {
     backgroundColor: "#d9edee",
-    scale: 2,
+    scale: Math.min(window.devicePixelRatio || 2, 3),
     useCORS: true,
     logging: false,
-    width: 700,
-    windowWidth: 700
+    width: cardWidth,
+    height: cardHeight,
+    windowWidth: cardWidth,
+    windowHeight: cardHeight
   });
 
   const dataUrl = canvas.toDataURL("image/png");
   resultFlatImage.src = dataUrl;
   resultFlatImage.alt = "";
   resultImageCard.classList.remove("hidden");
+  resultCardRender.classList.add("hidden");
 }
 
 startBtn.addEventListener("click", () => {
@@ -324,6 +332,10 @@ async function showResult() {
   gameScreen.classList.add("hidden");
   resultScreen.classList.remove("hidden");
 
+  resultCardRender.classList.remove("hidden");
+  resultImageCard.classList.add("hidden");
+  resultFlatImage.removeAttribute("src");
+
   resultImage.src = result.image;
   resultImage.alt = result.name;
   resultName.textContent = result.name;
@@ -333,9 +345,6 @@ async function showResult() {
   resultStrengths.textContent = result.strengths;
   resultWeaknesses.textContent = result.weaknesses;
   resultReview.textContent = result.review;
-
-  resultImageCard.classList.add("hidden");
-  resultFlatImage.removeAttribute("src");
 
   try {
     await buildResultImage();
@@ -352,6 +361,10 @@ restartBtn.addEventListener("click", () => {
   Object.keys(state.scores).forEach((key) => {
     state.scores[key] = 0;
   });
+
+  resultCardRender.classList.remove("hidden");
+  resultImageCard.classList.add("hidden");
+  resultFlatImage.removeAttribute("src");
 
   resultScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
