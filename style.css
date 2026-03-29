@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', Arial, sans-serif;
   background: #efe9db;
   color: #222;
 }
@@ -25,6 +25,22 @@ body {
 
 .hidden {
   display: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 1px;
+}
+
+.choice-btn,
+.main-btn {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 h1, h2, h3, p {
