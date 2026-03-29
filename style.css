@@ -286,7 +286,10 @@ button {
 }
 
 .result-flat-image {
-  width: min(100%, 700px);
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
   border-radius: 24px;
   box-shadow: var(--shadow);
   user-select: none;
@@ -318,4 +321,39 @@ button {
   .profile-name {
     font-size: 2.35rem;
   }
+}
+
+/* Force the exported/rendered ID card to always use desktop layout */
+#result-card-render {
+  width: 700px !important;
+  max-width: 700px !important;
+  padding: 28px !important;
+}
+
+#result-card-render .profile-main {
+  display: grid !important;
+  grid-template-columns: 220px 1fr !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+#result-card-render .profile-name {
+  font-size: 3rem !important;
+}
+
+#result-card-render .profile-image-wrap {
+  min-height: 220px !important;
+}
+
+#result-card-render .result-image {
+  width: 100% !important;
+  max-height: 260px !important;
+  object-fit: contain !important;
+}
+
+/* The generated image can still shrink to fit the phone screen */
+#result-image-card,
+#result-flat-image {
+  width: 100%;
+  max-width: 700px;
 }
