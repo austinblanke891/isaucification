@@ -4,45 +4,73 @@
 const sauceResults = {
   marinara: {
     name: "Marinara",
-    description: "You are reliable, warm, and universally liked. People trust you without knowing why.",
-    traits: "classic • grounded • dependable",
-    image: "images/MarinaraProfile.png"
+    image: "images/MarinaraProfile.png",
+    description: '"You are reliable, warm, and universally liked. People trust you without knowing why."',
+    traits: "Alignment: Good 82%, Neutral 14%, Chaotic 4%",
+    extra: "Hidden talent: Making everyone feel weirdly safe",
+    strengths: "- Loyal\n- Warm\n- Dependable\n- The emotional baseline of the group",
+    weaknesses: "- Can play it a little too safe\n- Hates unnecessary drama\n- Secretly takes things personally",
+    review: '"Always there when you need them." - Alfredo'
   },
   alfredo: {
     name: "Alfredo",
-    description: "You are comfort in human form. A little indulgent, a little dramatic, and deeply loved.",
-    traits: "cozy • rich • affectionate",
-    image: "images/AlfredoProfile.png"
+    image: "images/AlfredoProfile.png",
+    description: '"You are comfort in human form. A little indulgent, a little dramatic, and deeply loved."',
+    traits: "Alignment: Good 70%, Neutral 18%, Chaotic 12%",
+    extra: "Hidden talent: Turning a bad night around instantly",
+    strengths: "- Comforting\n- Affectionate\n- Generous\n- Rich in every sense",
+    weaknesses: "- Can be a little extra\n- Overcommits emotionally\n- Not built for subtlety",
+    review: '"Honestly? A lot. But in a good way." - Pesto'
   },
   pesto: {
     name: "Pesto",
-    description: "You are creative, fresh, and slightly unpredictable.",
-    traits: "artsy • spontaneous • magnetic",
-    image: "images/PestoProfile.png"
+    image: "images/PestoProfile.png",
+    description: '"You are creative, fresh, and slightly unpredictable."',
+    traits: "Alignment: Good 54%, Neutral 20%, Chaotic 26%",
+    extra: "Hidden talent: Making weird ideas work",
+    strengths: "- Creative\n- Magnetic\n- Spontaneous\n- Effortlessly cool",
+    weaknesses: "- Hard to pin down\n- Mood-dependent\n- May reinvent the plan mid-plan",
+    review: '"I never know what they are doing, but it usually works." - Marinara'
   },
   carbonara: {
     name: "Carbonara",
-    description: "You are particular, confident, and quietly intense.",
-    traits: "refined • stubborn • precise",
-    image: "images/CarbonaraProfile.png"
+    image: "images/CarbonaraProfile.png",
+    description: '"You are particular, confident, and quietly intense."',
+    traits: "Alignment: Lawful 68%, Good 16%, Chaotic 16%",
+    extra: "Hidden talent: Being correct under pressure",
+    strengths: "- Precise\n- Confident\n- High standards\n- Strong opinions",
+    weaknesses: "- Stubborn\n- Judges shortcuts harshly\n- Not very flexible",
+    review: '"Annoyingly right more often than not." - Bolognese'
   },
   bolognese: {
     name: "Bolognese",
-    description: "You are deep, patient, and layered.",
-    traits: "complex • thoughtful • slow-burning",
-    image: "images/BologneseProfile.png"
+    image: "images/BologneseProfile.png",
+    description: '"You are deep, patient, and layered."',
+    traits: "Alignment: Lawful 40%, Good 45%, Chaotic 15%",
+    extra: "Hidden talent: Quietly holding everything together",
+    strengths: "- Thoughtful\n- Patient\n- Complex\n- Worth the wait",
+    weaknesses: "- Slow to open up\n- Overthinks everything\n- Can get heavy",
+    review: '"There is a lot going on there. I mean that respectfully." - Carbonara'
   },
   arrabbiata: {
     name: "Arrabbiata",
-    description: "You are intense, expressive, and slightly chaotic.",
-    traits: "fiery • dramatic • loud",
-    image: "images/ArrabbiataProfile.png"
+    image: "images/ArrabbiataProfile.png",
+    description: '"You are intense, expressive, and slightly chaotic."',
+    traits: "Alignment: Good 32%, Neutral 18%, Chaotic 50%",
+    extra: "Hidden talent: Turning rage into charisma",
+    strengths: "- Bold\n- Honest\n- Passionate\n- Impossible to ignore",
+    weaknesses: "- Reactive\n- Escalates quickly\n- Has never de-escalated once",
+    review: '"A lot of personality. Maybe too much. But still iconic." - Alfredo'
   },
   puttanesca: {
     name: "Puttanesca",
-    description: "You are chaotic, bold, and iconic in a questionable way.",
-    traits: "chaotic • wild • magnetic",
-    image: "images/PuttanescaProfile.png"
+    image: "images/PuttanescaProfile.png",
+    description: '"You are chaotic, bold, and iconic in a questionable way."',
+    traits: "Alignment: Good 20%, Neutral 20%, Chaotic 60%",
+    extra: "Hidden talent: Thriving under total nonsense",
+    strengths: "- Fearless\n- Quirky\n- Memorable\n- Weirdly resourceful",
+    weaknesses: "- Unpredictable\n- Poor impulse control\n- Will absolutely make it everyone's problem",
+    review: '"I do not fully understand them, but I respect the commitment." - Marinara'
   }
 };
 
@@ -112,7 +140,7 @@ const scenes = {
 
   scene3: {
     title: "A problem arises.",
-    text: "Someone says: 'I don’t like pasta.'",
+    text: "Someone says: 'I don't like pasta.'",
     choices: [
       {
         text: "Ignore them politely",
@@ -194,6 +222,10 @@ const resultImage = document.getElementById("result-image");
 const resultName = document.getElementById("result-name");
 const resultDescription = document.getElementById("result-description");
 const resultTraits = document.getElementById("result-traits");
+const resultExtra = document.getElementById("result-extra");
+const resultStrengths = document.getElementById("result-strengths");
+const resultWeaknesses = document.getElementById("result-weaknesses");
+const resultReview = document.getElementById("result-review");
 
 // ----------------------
 // START GAME
@@ -264,6 +296,10 @@ function showResult() {
   resultName.textContent = result.name;
   resultDescription.textContent = result.description;
   resultTraits.textContent = result.traits;
+  resultExtra.textContent = result.extra;
+  resultStrengths.innerText = result.strengths;
+  resultWeaknesses.innerText = result.weaknesses;
+  resultReview.textContent = result.review;
 }
 
 // ----------------------
@@ -274,7 +310,7 @@ downloadBtn.addEventListener("click", async () => {
   const resultTitle = document.getElementById("result-name").textContent || "sauce-profile";
 
   const canvas = await html2canvas(card, {
-    backgroundColor: "#f7f2ea",
+    backgroundColor: null,
     scale: 2
   });
 

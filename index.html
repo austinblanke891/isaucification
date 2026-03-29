@@ -16,22 +16,62 @@
     </section>
 
     <section id="game-screen" class="screen hidden">
-      <h2 id="scene-title"></h2>
-      <p id="scene-text"></p>
-      <div id="choices" class="choices"></div>
+      <div class="question-card">
+        <h2 id="scene-title"></h2>
+        <p id="scene-text"></p>
+        <div id="choices" class="choices"></div>
+      </div>
     </section>
 
     <section id="result-screen" class="screen hidden">
-      <h2>You are...</h2>
-      <img id="result-image" class="result-image" alt="" />
-      <h1 id="result-name"></h1>
-      <p id="result-description"></p>
-      <p id="result-traits" class="traits"></p>
-      <button id="restart-btn" class="main-btn">Play again</button>
+      <p class="result-top-text">
+        Drumroll... here is your Sauce ID! Don't lose it!
+      </p>
+
+      <div id="result-card" class="profile-card">
+        <div class="profile-header">
+          <div class="profile-title">Sauce ID</div>
+          <h1 id="result-name" class="profile-name"></h1>
+        </div>
+
+        <div class="profile-main">
+          <div class="profile-image-wrap">
+            <img id="result-image" class="result-image" alt="" />
+          </div>
+
+          <div class="profile-box">
+            <h3>Strengths</h3>
+            <p id="result-strengths"></p>
+
+            <h3>Weaknesses</h3>
+            <p id="result-weaknesses"></p>
+          </div>
+        </div>
+
+        <div class="profile-quote">
+          <p id="result-description"></p>
+        </div>
+
+        <div class="profile-stats">
+          <p id="result-traits"></p>
+          <p id="result-extra"></p>
+        </div>
+
+        <div class="profile-reviews">
+          <h3>Peer reviews</h3>
+          <p id="result-review"></p>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button id="download-btn" class="main-btn">Download profile</button>
+        <button id="restart-btn" class="main-btn secondary-btn">Play again</button>
+      </div>
     </section>
 
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="game.js"></script>
 </body>
 </html>
