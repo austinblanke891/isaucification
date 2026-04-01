@@ -1243,25 +1243,6 @@ function renderTile() {
   });
 }
 
-  sceneTitle.textContent = tile.title;
-  sceneText.textContent = tile.text;
-  choicesContainer.innerHTML = "";
-
-  if (sceneImage) {
-    sceneImage.src = tile.image || "";
-    sceneImage.alt = tile.title || "";
-  }
-
-  tile.choices.forEach((choice) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-btn";
-    btn.textContent = choice.text;
-    btn.type = "button";
-    btn.onclick = () => handleChoice(choice);
-    choicesContainer.appendChild(btn);
-  });
-}
-
 function handleChoice(choice) {
   Object.keys(choice.points || {}).forEach((key) => {
     if (typeof state.scores[key] === "number") {
@@ -1352,19 +1333,23 @@ function resetGame() {
   }
 }
 
-startBtn.addEventListener("click", () => {
-  resetGame();
-  startScreen.classList.add("hidden");
-  resultScreen.classList.add("hidden");
-  gameScreen.classList.remove("hidden");
-  renderTile();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (startBtn) {
+  startBtn.addEventListener("click", () => {
+    resetGame();
+    startScreen.classList.add("hidden");
+    resultScreen.classList.add("hidden");
+    gameScreen.classList.remove("hidden");
+    renderTile();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
-restartBtn.addEventListener("click", () => {
-  resetGame();
-  resultScreen.classList.add("hidden");
-  gameScreen.classList.add("hidden");
-  startScreen.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (restartBtn) {
+  restartBtn.addEventListener("click", () => {
+    resetGame();
+    resultScreen.classList.add("hidden");
+    gameScreen.classList.add("hidden");
+    startScreen.classList.remove("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
