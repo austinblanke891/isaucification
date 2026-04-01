@@ -1213,14 +1213,35 @@ async function buildResultImage() {
 }
 
 function renderTile() {
-  if (chapterPill) {
-  chapterPill.textContent = `Chapter ${tile.chapter}`;
-  }
   const tile = storyTiles[state.currentTile];
+
   if (!tile) {
     console.error("Missing tile:", state.currentTile);
     return;
   }
+
+  if (chapterPill) {
+    chapterPill.textContent = `Chapter ${tile.chapter}`;
+  }
+
+  sceneTitle.textContent = tile.title;
+  sceneText.textContent = tile.text;
+  choicesContainer.innerHTML = "";
+
+  if (sceneImage) {
+    sceneImage.src = tile.image || "";
+    sceneImage.alt = tile.title || "";
+  }
+
+  tile.choices.forEach((choice) => {
+    const btn = document.createElement("button");
+    btn.className = "choice-btn";
+    btn.textContent = choice.text;
+    btn.type = "button";
+    btn.onclick = () => handleChoice(choice);
+    choicesContainer.appendChild(btn);
+  });
+}
 
   sceneTitle.textContent = tile.title;
   sceneText.textContent = tile.text;
