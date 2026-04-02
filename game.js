@@ -2,111 +2,131 @@ const sauceResults = {
   marinara: {
     name: "Marinara",
     image: "images/MarinaraProfile.png",
-    description: '"You are warm, steady, and universally trusted. People feel better the second you show up."',
+    description:
+      '"You are steady, generous, and harder to replace than people realize. You do not need to be flashy to become essential."',
     traits: "Alignment: Good 82%, Neutral 14%, Chaotic 4%",
-    extra: "Hidden talent: Making everyone feel weirdly safe",
-    strengths: "- Loyal\n- Warm\n- Dependable\n- Easy to trust",
-    weaknesses: "- Can play it a little too safe\n- Hates unnecessary drama\n- Secretly takes things personally",
-    review: '"Always there when you need them." - Alfredo'
+    extra: "Hidden talent: Making people feel less alone in under thirty seconds",
+    strengths: "- Loyal\n- Grounding\n- Sincere\n- Easy to trust",
+    weaknesses:
+      "- Can default to caretaker mode\n- Struggles to ask for help\n- Takes hurt more personally than you let on",
+    review: '"Reliable in a way that makes everybody else act better." - Alfredo'
   },
 
   alfredo: {
     name: "Alfredo",
     image: "images/AlfredoProfile.png",
-    description: '"You are comfort in human form. Soft, generous, and fully committed to the vibe."',
+    description:
+      '"You are comfort with a dramatic streak. Soft-hearted, affectionate, and fully capable of improving the entire mood of a room."',
     traits: "Alignment: Good 70%, Neutral 18%, Chaotic 12%",
-    extra: "Hidden talent: Turning a bad night around instantly",
-    strengths: "- Comforting\n- Affectionate\n- Generous\n- Emotionally soothing",
-    weaknesses: "- Can be a little extra\n- Avoids discomfort when possible\n- Not built for subtlety",
-    review: '"Honestly? A lot. But in a good way." - Pesto'
+    extra: "Hidden talent: Turning a bad day into a sleepover",
+    strengths: "- Comforting\n- Generous\n- Affectionate\n- Warmly persuasive",
+    weaknesses:
+      "- Can overindulge feelings\n- Avoids conflict until it becomes a whole event\n- Occasionally too much, but in a memorable way",
+    review: '"A lot? Yes. But rarely in the wrong direction." - Pesto'
   },
 
   pesto: {
     name: "Pesto",
     image: "images/PestoProfile.png",
-    description: '"You are creative, fresh, and a little impossible to categorize."',
+    description:
+      '"You are inventive, hard to classify, and impossible to fake. People call you random right up until your weird idea works perfectly."',
     traits: "Alignment: Good 54%, Neutral 20%, Chaotic 26%",
-    extra: "Hidden talent: Making weird ideas work",
-    strengths: "- Creative\n- Magnetic\n- Original\n- Effortlessly cool",
-    weaknesses: "- Hard to pin down\n- Mood-dependent\n- May reinvent the plan mid-plan",
-    review: '"I never know what they are doing, but it usually works." - Marinara'
+    extra: "Hidden talent: Making originality look effortless",
+    strengths: "- Inventive\n- Magnetic\n- Stylish\n- Surprisingly resourceful",
+    weaknesses:
+      "- Can drift when bored\n- Reinvents things mid-process\n- Sometimes confuses impulse with inspiration",
+    review: '"I have no idea what the plan is. Disturbingly, that may be the plan." - Marinara'
   },
 
   carbonara: {
     name: "Carbonara",
     image: "images/CarbonaraProfile.png",
-    description: '"You are particular, confident, and quietly intense. There is a right way, and you know it."',
+    description:
+      '"You are exacting, composed, and fully aware that standards exist for a reason. Under pressure, you become even more yourself."',
     traits: "Alignment: Lawful 68%, Good 16%, Chaotic 16%",
-    extra: "Hidden talent: Being correct under pressure",
-    strengths: "- Precise\n- Confident\n- High standards\n- Strong opinions",
-    weaknesses: "- Stubborn\n- Judges shortcuts harshly\n- Not very flexible",
-    review: '"Annoyingly right more often than not." - Bolognese'
+    extra: "Hidden talent: Being right in a crisis without raising your voice",
+    strengths: "- Precise\n- Competent\n- Decisive\n- High standards",
+    weaknesses:
+      "- Inflexible\n- Intolerant of sloppy thinking\n- Can make correctness feel vaguely threatening",
+    review: '"Exhausting. Useful. Usually correct. I hate that for me." - Bolognese'
   },
 
   bolognese: {
     name: "Bolognese",
     image: "images/BologneseProfile.png",
-    description: '"You are grounded, patient, and built to last. People underestimate how much you are holding together."',
+    description:
+      '"You are patient, substantial, and stronger than your calm exterior suggests. You do not rush, and that is usually why you last."',
     traits: "Alignment: Lawful 40%, Good 45%, Chaotic 15%",
-    extra: "Hidden talent: Quietly holding everything together",
-    strengths: "- Thoughtful\n- Patient\n- Reliable\n- Deeply steady",
-    weaknesses: "- Slow to open up\n- Overthinks everything\n- Can get heavy",
-    review: '"There is a lot going on there. I mean that respectfully." - Carbonara'
+    extra: "Hidden talent: Holding fragile situations together without announcing it",
+    strengths: "- Steady\n- Thoughtful\n- Patient\n- Deeply dependable",
+    weaknesses:
+      "- Slow to open up\n- Carries too much alone\n- Can become heavy when nobody helps stir",
+    review: '"There is more going on here than most people clock on first taste." - Carbonara'
   },
 
   arrabbiata: {
     name: "Arrabbiata",
     image: "images/ArrabbiataProfile.png",
-    description: '"You are fiery, expressive, and impossible to ignore. You feel everything at full volume."',
+    description:
+      '"You are intense, expressive, and gloriously incapable of half-feeling anything. People know when you are in the room, whether they wanted to or not."',
     traits: "Alignment: Good 32%, Neutral 18%, Chaotic 50%",
-    extra: "Hidden talent: Turning rage into charisma",
-    strengths: "- Bold\n- Honest\n- Passionate\n- High energy",
-    weaknesses: "- Reactive\n- Escalates quickly\n- Has never de-escalated once",
-    review: '"A lot of personality. Maybe too much. But still iconic." - Alfredo'
+    extra: "Hidden talent: Converting outrage into momentum",
+    strengths: "- Bold\n- Honest\n- Passionate\n- Electrifying",
+    weaknesses:
+      "- Reactive\n- Can escalate on instinct\n- Has a complicated relationship with indoor volume",
+    review: '"Completely unreasonable. Deeply alive. Weirdly inspiring." - Alfredo'
   },
 
   puttanesca: {
     name: "Puttanesca",
     image: "images/PuttanescaProfile.png",
-    description: '"You are chaotic, bold, and strangely iconic. You should not work this well, and yet you do."',
+    description:
+      '"You are bold, messy, and somehow more coherent than anyone expects. Your existence feels like a dare that paid off."',
     traits: "Alignment: Good 20%, Neutral 20%, Chaotic 60%",
-    extra: "Hidden talent: Thriving under total nonsense",
-    strengths: "- Fearless\n- Quirky\n- Memorable\n- Weirdly resourceful",
-    weaknesses: "- Unpredictable\n- Poor impulse control\n- Will absolutely make it everyone’s problem",
-    review: '"I do not fully understand them, but I respect the commitment." - Marinara'
+    extra: "Hidden talent: Thriving in situations that should sink everyone else",
+    strengths: "- Fearless\n- Distinctive\n- Quick-thinking\n- Impossible to forget",
+    weaknesses:
+      "- Unpredictable\n- Impulsive\n- Will absolutely drag the group into your bit",
+    review: '"Should not work. Does work. This is upsetting on several levels." - Marinara'
   },
 
   vodka: {
     name: "Vodka Sauce",
     image: "images/VodkaSauceProfile.png",
-    description: '"You are charming, adaptable, and a little extra in a way that usually works for you."',
+    description:
+      '"You are charming, adaptable, and just self-aware enough to weaponize your own charisma. You fit almost anywhere and somehow still stand out."',
     traits: "Alignment: Good 46%, Neutral 24%, Chaotic 30%",
-    extra: "Hidden talent: Matching literally any room’s energy",
-    strengths: "- Socially flexible\n- Charming\n- Fun\n- Hard to dislike",
-    weaknesses: "- Can be a little performative\n- Avoids being fully pinned down\n- Sometimes wants everyone to get it",
-    review: '"Somehow gets invited everywhere." - Pesto'
+    extra: "Hidden talent: Matching a room before the room knows what it is",
+    strengths: "- Socially agile\n- Charming\n- Funny\n- Surprisingly versatile",
+    weaknesses:
+      "- Can become performative\n- Hates being pinned down too early\n- Wants to be understood on a level most people cannot deliver",
+    review: '"Suspiciously good at making every table feel like their table." - Pesto'
   },
 
   cacioepepe: {
     name: "Cacio e Pepe",
     image: "images/CacioEPepeProfile.png",
-    description: '"You are minimal, sharp, and weirdly intimidating for someone doing so little."',
+    description:
+      '"You are minimal, severe, and more impressive than your ingredient list has any right to allow. You know excess is often cowardice."',
     traits: "Alignment: Lawful 58%, Good 12%, Chaotic 30%",
-    extra: "Hidden talent: Winning with less",
-    strengths: "- Efficient\n- Clever\n- Self-possessed\n- High standards",
-    weaknesses: "- Dry sense of humor\n- Secretly judgmental\n- Has no patience for overcomplication",
-    review: '"Insufferable. But elegant." - Carbonara'
+    extra: "Hidden talent: Winning arguments by saying six words total",
+    strengths: "- Efficient\n- Sharp\n- Self-possessed\n- Elegant",
+    weaknesses:
+      "- Dry to the point of danger\n- Secretly judgmental\n- Has no patience for needless embellishment",
+    review: '"Obnoxious in concept. Flawless in execution." - Carbonara'
   },
 
   amatriciana: {
     name: "Amatriciana",
     image: "images/AmatricianaProfile.png",
-    description: '"You are blunt, intense, and not here to waste time. People know exactly where they stand with you."',
+    description:
+      '"You are direct, forceful, and refreshingly uninterested in games. People may flinch at your delivery, but they rarely forget your point."',
     traits: "Alignment: Lawful 34%, Good 18%, Chaotic 48%",
-    extra: "Hidden talent: Cutting through nonsense instantly",
-    strengths: "- Direct\n- Decisive\n- Passionate\n- Weirdly respectable",
-    weaknesses: "- Impatient\n- Can come off harsh\n- Has never once sugarcoated anything",
-    review: '"Terrifying delivery. Solid point." - Marinara'
+    extra: "Hidden talent: Cutting through nonsense before it breeds",
+    strengths: "- Direct\n- Decisive\n- Fierce\n- Effective",
+    weaknesses:
+      "- Impatient\n- Can sound harsher than intended\n- Has never sugarcoated a single thing in this life",
+    review: '"Terrible bedside manner. Excellent emergency contact." - Marinara'
   }
 };
 
@@ -118,22 +138,23 @@ const storyTiles = {
   // =========================
   ch1_q1: {
     chapter: 1,
-    title: "Chapter 1: You come into existence.",
-    text: "You blink. You are warm, sentient, and gently simmering. A wooden spoon passes over the surface of your soul. First thought?",
+    title: "Chapter 1: You become aware.",
+    text:
+      "Heat. Motion. The drag of a wooden spoon through your entire body.\nYou are not in a pot. You are the pot's main event.\nSomething nearby hisses garlic into existence. Something else has opinions about oregano. You gather yourself and think, with alarming clarity: oh. This is permanent.",
     image: "images/ch1_q1.png",
     choices: [
       {
-        text: "This is serious. I should probably be excellent.",
+        text: "Stabilize immediately. Whatever this is, I am going to do it correctly.",
         next: "ch1_q2_precision",
         points: { carbonara: 2, cacioepepe: 2, bolognese: 1 }
       },
       {
-        text: "Omg hi. I hope everyone is having a nice time.",
+        text: "Okay. New plan: become a comforting memory for somebody.",
         next: "ch1_q2_comfort",
         points: { marinara: 2, alfredo: 2, bolognese: 1 }
       },
       {
-        text: "Interesting. I will now become a problem in a beautiful way.",
+        text: "Interesting. I will now make this everyone's business.",
         next: "ch1_q2_chaos",
         points: { pesto: 1, vodka: 1, arrabbiata: 1, puttanesca: 2, amatriciana: 1 }
       }
@@ -142,22 +163,23 @@ const storyTiles = {
 
   ch1_q2_precision: {
     chapter: 1,
-    title: "The pot is your kingdom.",
-    text: "You take stock. Texture matters. Ratio matters. The kitchen has standards and you are low-key the standards.",
+    title: "The pot becomes a workplace.",
+    text:
+      "You assess viscosity, heat, and ingredient morale. A lesser sauce might call this overthinking. You call it preventing disaster before it gets a chance to feel welcome.",
     image: "images/ch1_q2_precision.png",
     choices: [
       {
-        text: "Stabilize immediately. We are not free-falling on my watch.",
+        text: "Take control of the texture now. Panic is just poor planning in costume.",
         next: "ch1_q3_precision",
         points: { carbonara: 2, bolognese: 1, cacioepepe: 2 }
       },
       {
-        text: "Say nothing, but judge everything.",
+        text: "Say nothing. Observe everything. Let the errors reveal themselves.",
         next: "ch1_q3_precision",
         points: { cacioepepe: 2, carbonara: 1 }
       },
       {
-        text: "Focus on depth. Slow and correct wins.",
+        text: "Build depth slowly. Fast results are for people with no vision.",
         next: "ch1_q3_precision",
         points: { bolognese: 2, carbonara: 1 }
       }
@@ -166,22 +188,23 @@ const storyTiles = {
 
   ch1_q2_comfort: {
     chapter: 1,
-    title: "You feel... emotionally available.",
-    text: "The herbs are floating, the light is nice, and honestly the whole moment feels very healing. You could make someone cry in a gentle way.",
+    title: "You discover tenderness.",
+    text:
+      "Steam curls up around you like stage fog for a very sincere play. A floating basil leaf bumps your surface and seems calmer for it. You begin to suspect your purpose may involve making hard days less sharp.",
     image: "images/ch1_q2_comfort.png",
     choices: [
       {
-        text: "I want to be the reason someone feels okay again.",
+        text: "Be the thing people come back to when they need steadiness.",
         next: "ch1_q3_comfort",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "I want to be rich, indulgent, and impossible to quit.",
+        text: "Be rich enough to count as emotional intervention.",
         next: "ch1_q3_comfort",
         points: { alfredo: 2, vodka: 1 }
       },
       {
-        text: "I want everyone included. No sauce left behind.",
+        text: "Be welcoming. Nobody should feel out of place at this stove.",
         next: "ch1_q3_comfort",
         points: { marinara: 2, alfredo: 1, vodka: 1 }
       }
@@ -190,22 +213,23 @@ const storyTiles = {
 
   ch1_q2_chaos: {
     chapter: 1,
-    title: "You choose vibes over laws.",
-    text: "No one told you the rules and honestly that was their first mistake. You are bubbling with possibility and mild danger.",
+    title: "You reject quiet dignity.",
+    text:
+      "Nobody handed you a rulebook, and honestly that sounds like a them problem. The pot is loud, fragrant, and one bad impulse away from becoming legendary.",
     image: "images/ch1_q2_chaos.png",
     choices: [
       {
-        text: "Add a weird flourish. Art requires commitment.",
+        text: "Add one strange flourish. It will either ruin everything or save it beautifully.",
         next: "ch1_q3_chaos",
         points: { pesto: 2, vodka: 1, puttanesca: 1 }
       },
       {
-        text: "Turn up the heat. Let the room feel you.",
+        text: "Turn up the heat. If the room remembers this, good.",
         next: "ch1_q3_chaos",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Whatever happens next is canon.",
+        text: "Do the least defensible thing available and commit fully.",
         next: "ch1_q3_chaos",
         points: { puttanesca: 2, vodka: 1, arrabbiata: 1 }
       }
@@ -214,22 +238,23 @@ const storyTiles = {
 
   ch1_q3_precision: {
     chapter: 1,
-    title: "You become aware of the other ingredients.",
-    text: "Cheese. Pepper. Aromatics. They are looking to you for leadership, whether they know it or not.",
+    title: "The ingredients look to you.",
+    text:
+      "Cheese, pepper, garlic, herbs. None of them speak, which is ideal, but you can feel the expectation anyway. Leadership, it turns out, is mostly being the least confused thing in the room.",
     image: "images/ch1_q3_precision.png",
     choices: [
       {
-        text: "Give every ingredient a correct and sacred role.",
+        text: "Assign each ingredient a proper role and enforce it.",
         next: "ch1_q4_precision",
         points: { carbonara: 2, cacioepepe: 2 }
       },
       {
-        text: "Build something patient and layered.",
+        text: "Layer patiently until the whole thing can hold its own weight.",
         next: "ch1_q4_precision",
         points: { bolognese: 2, carbonara: 1 }
       },
       {
-        text: "Keep it minimal. Extra is for the weak.",
+        text: "Strip it back. Anything unnecessary is an admission of weakness.",
         next: "ch1_q4_precision",
         points: { cacioepepe: 3 }
       }
@@ -238,22 +263,23 @@ const storyTiles = {
 
   ch1_q3_comfort: {
     chapter: 1,
-    title: "The kitchen smells like emotional support.",
-    text: "A tiny noodle drifts by and looks calmer in your presence. You realize this may be your thing.",
+    title: "You become easy to need.",
+    text:
+      "A noodle passes through you and visibly relaxes. That should be ridiculous. Instead, it feels correct. Some sauces impress. Some sauces soothe. You know which one you'd rather be.",
     image: "images/ch1_q3_comfort.png",
     choices: [
       {
-        text: "Be the classic. Familiarity is elite actually.",
+        text: "Be familiar enough to feel like home.",
         next: "ch1_q4_comfort",
         points: { marinara: 3 }
       },
       {
-        text: "Be the comfort pick. More softness. More cream. More yes.",
+        text: "Be soft enough to count as a coping mechanism.",
         next: "ch1_q4_comfort",
         points: { alfredo: 3 }
       },
       {
-        text: "Be warm, but a little glam about it.",
+        text: "Be warm, but with enough flair to keep it interesting.",
         next: "ch1_q4_comfort",
         points: { vodka: 2, alfredo: 1 }
       }
@@ -262,22 +288,23 @@ const storyTiles = {
 
   ch1_q3_chaos: {
     chapter: 1,
-    title: "You feel the plot thickening.",
-    text: "Literally and spiritually. This is no longer just sauce. This is self-expression under heat.",
+    title: "You decide to become a story.",
+    text:
+      "This is no longer dinner. This is authorship under pressure. Something in you wants to be remembered, even if the remembering includes the phrase 'in hindsight, nobody should have allowed that.'",
     image: "images/ch1_q3_chaos.png",
     choices: [
       {
-        text: "Make it creative and low-key iconic.",
+        text: "Make it inventive enough that people can't copy it without embarrassing themselves.",
         next: "ch1_q4_chaos",
         points: { pesto: 2, vodka: 1 }
       },
       {
-        text: "Make it loud. Let them recover later.",
+        text: "Make it loud enough to erase every weaker opinion in the room.",
         next: "ch1_q4_chaos",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Make it questionable, but unforgettable.",
+        text: "Make it suspicious on paper and unforgettable in practice.",
         next: "ch1_q4_chaos",
         points: { puttanesca: 3 }
       }
@@ -286,22 +313,22 @@ const storyTiles = {
 
   ch1_q4_precision: {
     chapter: 1,
-    title: "You define yourself.",
-    text: "If your existence had a mission statement, what would it be?",
+    title: "You choose your principle.",
+    text: "If someone reduced your entire existence to one sentence, which sentence would survive?",
     image: "images/ch1_q4_precision.png",
     choices: [
       {
-        text: "Correctness is care.",
+        text: "Care is taking the trouble to do it right.",
         next: "ch2_q1",
         points: { carbonara: 2, cacioepepe: 1 }
       },
       {
-        text: "Time and patience create depth.",
+        text: "Time is not wasted when it creates substance.",
         next: "ch2_q1",
         points: { bolognese: 2 }
       },
       {
-        text: "Elegance is doing more with less.",
+        text: "Elegance begins where excess finally shuts up.",
         next: "ch2_q1",
         points: { cacioepepe: 2, carbonara: 1 }
       }
@@ -310,22 +337,22 @@ const storyTiles = {
 
   ch1_q4_comfort: {
     chapter: 1,
-    title: "You define yourself.",
-    text: "If your existence had a mission statement, what would it be?",
+    title: "You choose your principle.",
+    text: "If someone reduced your entire existence to one sentence, which sentence would survive?",
     image: "images/ch1_q4_comfort.png",
     choices: [
       {
-        text: "I want people to feel held.",
+        text: "I want people to feel held, not merely fed.",
         next: "ch2_q1",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "I want to fix the whole evening with one bite.",
+        text: "I want to repair an evening with one good bite.",
         next: "ch2_q1",
         points: { alfredo: 2 }
       },
       {
-        text: "I want everyone at the table to exhale a little.",
+        text: "I want the whole table to soften around the edges.",
         next: "ch2_q1",
         points: { marinara: 2, bolognese: 1 }
       }
@@ -334,22 +361,22 @@ const storyTiles = {
 
   ch1_q4_chaos: {
     chapter: 1,
-    title: "You define yourself.",
-    text: "If your existence had a mission statement, what would it be?",
+    title: "You choose your principle.",
+    text: "If someone reduced your entire existence to one sentence, which sentence would survive?",
     image: "images/ch1_q4_chaos.png",
     choices: [
       {
-        text: "Surprise is a form of love.",
+        text: "Surprise is just intimacy in unusual clothing.",
         next: "ch2_q1",
         points: { pesto: 2, vodka: 1 }
       },
       {
-        text: "Intensity is the point.",
+        text: "Intensity is honesty without manners.",
         next: "ch2_q1",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "I was not made to be normal.",
+        text: "Normal was never a useful option for me.",
         next: "ch2_q1",
         points: { puttanesca: 2, vodka: 1, pesto: 1 }
       }
@@ -362,21 +389,22 @@ const storyTiles = {
   ch2_q1: {
     chapter: 2,
     title: "Chapter 2: You meet the other sauces.",
-    text: "You are ladled into the Sauce Commons. Marinara smiles. Carbonara is visibly evaluating you. Vodka somehow looks booked and busy. Puttanesca is doing... something with olives.",
+    text:
+      "You are transferred to the Sauce Commons, a communal basin with terrible acoustics and intense social politics. Marinara greets you kindly. Carbonara evaluates you like an admissions committee. Vodka looks well-liked on purpose. Puttanesca is doing something with olives that nobody has approved.",
     image: "images/ch2_q1.png",
     choices: [
       {
-        text: "Smile first. Be normal. Or at least warm.",
+        text: "Approach warmly. No need to make this weird before lunch.",
         next: "ch2_q2_warm",
         points: { marinara: 2, alfredo: 1, vodka: 1 }
       },
       {
-        text: "Observe quietly and assess the room.",
+        text: "Hang back and read the room before the room reads you.",
         next: "ch2_q2_reserved",
         points: { bolognese: 2, cacioepepe: 1, carbonara: 1 }
       },
       {
-        text: "Walk in like the camera is already on you.",
+        text: "Enter like you've already been discussed.",
         next: "ch2_q2_big",
         points: { vodka: 1, arrabbiata: 1, amatriciana: 1, puttanesca: 1 }
       }
@@ -385,22 +413,23 @@ const storyTiles = {
 
   ch2_q2_warm: {
     chapter: 2,
-    title: "Marinara adopts you immediately.",
-    text: "\"You seem nice,\" Marinara says, which in sauce culture is basically a hug. Alfredo offers emotional support. Pesto compliments your aura.",
+    title: "Marinara claims you socially.",
+    text:
+      "\"You seem nice,\" Marinara says, which here functions as both a blessing and a municipal permit. Alfredo shifts closer in solidarity. Pesto compliments your whole general situation.",
     image: "images/ch2_q2_warm.png",
     choices: [
       {
-        text: "Ask everyone how they are feeling, unironically.",
+        text: "Ask everyone how they're doing and mean it enough to alarm them.",
         next: "ch2_q3_warm",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "Make a joke so no one gets too vulnerable too fast.",
+        text: "Make a joke before anybody can become vulnerable too fast.",
         next: "ch2_q3_warm",
         points: { vodka: 2, pesto: 1 }
       },
       {
-        text: "Quietly become the group's emotional infrastructure.",
+        text: "Quietly become the emotional load-bearing wall.",
         next: "ch2_q3_warm",
         points: { marinara: 2, bolognese: 1 }
       }
@@ -409,22 +438,23 @@ const storyTiles = {
 
   ch2_q2_reserved: {
     chapter: 2,
-    title: "You hang back near the parm.",
-    text: "From a respectable distance, you begin reading the social field like a tactical document. Carbonara notices and gives a tiny nod that could mean approval or war.",
+    title: "You remain strategically adjacent to the parmesan.",
+    text:
+      "From a respectable distance, you begin mapping alliances, insecurities, and who talks too much when nervous. Carbonara notices and gives you a tiny nod that could mean respect or challenge. Either way, noted.",
     image: "images/ch2_q2_reserved.png",
     choices: [
       {
-        text: "Say very little, but make every word count.",
+        text: "Speak rarely. Make the rarity do the work.",
         next: "ch2_q3_reserved",
         points: { cacioepepe: 2, carbonara: 1 }
       },
       {
-        text: "Study everybody first. Depth over speed.",
+        text: "Watch longer. Depth is what speed invents excuses for.",
         next: "ch2_q3_reserved",
         points: { bolognese: 2 }
       },
       {
-        text: "Join once you've mapped the vibes.",
+        text: "Join only after you've identified the actual center of gravity.",
         next: "ch2_q3_reserved",
         points: { vodka: 1, bolognese: 1, cacioepepe: 1 }
       }
@@ -433,22 +463,23 @@ const storyTiles = {
 
   ch2_q2_big: {
     chapter: 2,
-    title: "You arrive with unjustified confidence.",
-    text: "The room notices. Arrabbiata respects the audacity. Puttanesca is instantly interested. Vodka says, \"Okayyy,\" in a way that could mean anything.",
+    title: "Your arrival becomes a situation.",
+    text:
+      "Heads turn. Arrabbiata respects the nerve immediately. Puttanesca becomes visibly entertained. Vodka says, \"Okay,\" in a tone that contains both approval and competition.",
     image: "images/ch2_q2_big.png",
     choices: [
       {
-        text: "Start a conversation with the loudest sauce there.",
+        text: "Go straight for the loudest person here. Let's save time.",
         next: "ch2_q3_big",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Work the room. Everyone is now your situation.",
+        text: "Work the room. If there's a social current, ride it.",
         next: "ch2_q3_big",
         points: { vodka: 2, pesto: 1 }
       },
       {
-        text: "Cause a little chaos to see who survives it.",
+        text: "Destabilize things slightly and see who gets interesting.",
         next: "ch2_q3_big",
         points: { puttanesca: 2, amatriciana: 1 }
       }
@@ -457,22 +488,23 @@ const storyTiles = {
 
   ch2_q3_warm: {
     chapter: 2,
-    title: "The sauce circle forms.",
-    text: "Someone suggests a friendship simmer. It is deeply earnest and a little cursed. Carbonara looks like it would rather evaporate.",
+    title: "Someone suggests a circle share.",
+    text:
+      "It is deeply earnest, a little cursed, and somehow already happening. Several sauces settle in. Carbonara looks like a hostage at a team-building retreat.",
     image: "images/ch2_q3_warm.png",
     choices: [
       {
-        text: "Invite everyone in, even Carbonara.",
+        text: "Invite everybody in, including the ones pretending not to care.",
         next: "ch2_q4_warm",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "Pair people who seem like they need each other.",
+        text: "Pair people who would secretly be good for each other.",
         next: "ch2_q4_warm",
         points: { bolognese: 1, marinara: 1, vodka: 1 }
       },
       {
-        text: "Keep it light. Too much intimacy too fast is illegal.",
+        text: "Keep it light. Emotional safety also requires pacing.",
         next: "ch2_q4_warm",
         points: { vodka: 2, alfredo: 1 }
       }
@@ -481,22 +513,23 @@ const storyTiles = {
 
   ch2_q3_reserved: {
     chapter: 2,
-    title: "A social test appears.",
-    text: "Puttanesca asks your opinion on something objectively messy. This is either a trap or a bonding ritual.",
+    title: "A test arrives disguised as a question.",
+    text:
+      "Puttanesca asks for your opinion on a socially messy situation. The tone suggests curiosity. The eyes suggest trap. The room goes still enough to hear somebody thicken.",
     image: "images/ch2_q3_reserved.png",
     choices: [
       {
-        text: "Answer honestly and let the chips fall.",
+        text: "Answer plainly. If they wanted comfort, they would have asked Alfredo.",
         next: "ch2_q4_reserved",
         points: { amatriciana: 1, carbonara: 1, cacioepepe: 1 }
       },
       {
-        text: "Give a measured answer with layers.",
+        text: "Give the nuanced answer and let them do the hard part of hearing it.",
         next: "ch2_q4_reserved",
         points: { bolognese: 2, carbonara: 1 }
       },
       {
-        text: "Say one devastatingly concise thing.",
+        text: "Say one concise thing sharp enough to end the discussion.",
         next: "ch2_q4_reserved",
         points: { cacioepepe: 2, amatriciana: 1 }
       }
@@ -505,22 +538,23 @@ const storyTiles = {
 
   ch2_q3_big: {
     chapter: 2,
-    title: "The vibes are now active.",
-    text: "You have somehow become a social event. Several sauces are orbiting you. This feels sustainable and not stressful at all.",
+    title: "You become the center of a developing event.",
+    text:
+      "Several sauces are now orbiting you for reasons that cannot be reversed. This feels flattering, potentially dangerous, and very on-brand.",
     image: "images/ch2_q3_big.png",
     choices: [
       {
-        text: "Charm everybody, including your haters.",
+        text: "Charm everybody, including the people already deciding against you.",
         next: "ch2_q4_big",
         points: { vodka: 2, marinara: 1 }
       },
       {
-        text: "Say something spicy and mean it.",
+        text: "Say the risky thing out loud and let honesty do the damage.",
         next: "ch2_q4_big",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Make the moment iconic, not sensible.",
+        text: "Make the moment unforgettable, not responsible.",
         next: "ch2_q4_big",
         points: { puttanesca: 2, pesto: 1 }
       }
@@ -529,22 +563,22 @@ const storyTiles = {
 
   ch2_q4_warm: {
     chapter: 2,
-    title: "In sauce society, you are known as...",
-    text: "The group has formed an impression of you. Which one feels right?",
+    title: "Among the sauces, you are known as...",
+    text: "By now, the group has decided what role you play in their minds. Which description lands cleanest?",
     image: "images/ch2_q4_warm.png",
     choices: [
       {
-        text: "The one people naturally trust.",
+        text: "The one people trust without having to explain why.",
         next: "ch3_q1",
         points: { marinara: 2, bolognese: 1 }
       },
       {
-        text: "The one who makes things softer.",
+        text: "The one who makes sharp things softer.",
         next: "ch3_q1",
         points: { alfredo: 2 }
       },
       {
-        text: "The one who keeps everyone comfortable but laughing.",
+        text: "The one who keeps everyone comfortable and vaguely entertained.",
         next: "ch3_q1",
         points: { vodka: 2, alfredo: 1 }
       }
@@ -553,22 +587,22 @@ const storyTiles = {
 
   ch2_q4_reserved: {
     chapter: 2,
-    title: "In sauce society, you are known as...",
-    text: "The group has formed an impression of you. Which one feels right?",
+    title: "Among the sauces, you are known as...",
+    text: "By now, the group has decided what role you play in their minds. Which description lands cleanest?",
     image: "images/ch2_q4_reserved.png",
     choices: [
       {
-        text: "The one with standards.",
+        text: "The one with standards and the nerve to keep them.",
         next: "ch3_q1",
         points: { carbonara: 2, cacioepepe: 1 }
       },
       {
-        text: "The one who notices everything.",
+        text: "The one who notices more than they say.",
         next: "ch3_q1",
         points: { bolognese: 2, cacioepepe: 1 }
       },
       {
-        text: "The one who says less, but means more.",
+        text: "The one who wastes no language and no time.",
         next: "ch3_q1",
         points: { cacioepepe: 2, bolognese: 1 }
       }
@@ -577,22 +611,22 @@ const storyTiles = {
 
   ch2_q4_big: {
     chapter: 2,
-    title: "In sauce society, you are known as...",
-    text: "The group has formed an impression of you. Which one feels right?",
+    title: "Among the sauces, you are known as...",
+    text: "By now, the group has decided what role you play in their minds. Which description lands cleanest?",
     image: "images/ch2_q4_big.png",
     choices: [
       {
-        text: "The one who owns the room.",
+        text: "The one who enters a room and alters its chemistry.",
         next: "ch3_q1",
         points: { vodka: 2, amatriciana: 1 }
       },
       {
-        text: "The one who makes things happen, loudly.",
+        text: "The one who gets things moving, loudly if necessary.",
         next: "ch3_q1",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "The one who cannot be explained and will not be trying.",
+        text: "The one nobody can summarize with dignity.",
         next: "ch3_q1",
         points: { puttanesca: 2, pesto: 1 }
       }
@@ -605,21 +639,22 @@ const storyTiles = {
   ch3_q1: {
     chapter: 3,
     title: "Chapter 3: There are dinosaurs.",
-    text: "A shadow passes over Sauce Commons. The ground shakes. Someone whispers, \"be so serious right now.\" You look up. There are, in fact, dinosaurs.",
+    text:
+      "A shadow crosses the Sauce Commons. The basin trembles. Somewhere behind you, a voice says, very quietly, \"Oh, come on.\"\nYou look up.\nThere are dinosaurs.\nNot a metaphor. Not a mascot situation. Dinosaurs.",
     image: "images/ch3_q1.png",
     choices: [
       {
-        text: "Pause. Assess. Surely there is a correct response plan.",
+        text: "Stop. Assess. Even this should have a correct response.",
         next: "ch3_q2_logical",
         points: { carbonara: 2, bolognese: 1, cacioepepe: 1 }
       },
       {
-        text: "Grab your friends. Panic later.",
+        text: "Get your people together first. Terror can wait its turn.",
         next: "ch3_q2_caring",
         points: { marinara: 2, alfredo: 1, vodka: 1 }
       },
       {
-        text: "This is insane. React immediately and with feeling.",
+        text: "React immediately. There is no honorable way to look normal right now.",
         next: "ch3_q2_chaotic",
         points: { arrabbiata: 2, amatriciana: 1, puttanesca: 1 }
       }
@@ -628,22 +663,23 @@ const storyTiles = {
 
   ch3_q2_logical: {
     chapter: 3,
-    title: "You choose analysis under prehistoric pressure.",
-    text: "The dinosaurs are large, rude, and moving fast. Carbonara is already proposing a formation. This is the worst group project of your life.",
+    title: "You choose structure under prehistoric pressure.",
+    text:
+      "The dinosaurs are huge, fast, and offensively unbriefed. Carbonara is already outlining a formation nobody asked for but everybody needs. It is, somehow, the worst possible group project.",
     image: "images/ch3_q2_logical.png",
     choices: [
       {
-        text: "Organize the sauces. We are doing crisis management.",
+        text: "Coordinate the sauces. Fear is inefficient when organized.",
         next: "ch3_q3_logical",
         points: { carbonara: 2, amatriciana: 1 }
       },
       {
-        text: "Find the safest route and move with purpose.",
+        text: "Find the safest route and move with conviction.",
         next: "ch3_q3_logical",
         points: { bolognese: 2, marinara: 1 }
       },
       {
-        text: "Ignore the noise. Precision only.",
+        text: "Ignore the shouting. Precision first, feelings if time permits.",
         next: "ch3_q3_logical",
         points: { cacioepepe: 2, carbonara: 1 }
       }
@@ -652,22 +688,23 @@ const storyTiles = {
 
   ch3_q2_caring: {
     chapter: 3,
-    title: "You choose people first, extinction second.",
-    text: "A tiny spoon falls over. Alfredo gasps. Marinara is trying to keep everyone calm but there are literally dinosaurs, so the group chat is not doing great.",
+    title: "You choose people before survival statistics.",
+    text:
+      "A spoon tips over. Alfredo gasps like somebody has been shot. Marinara starts calming people down with the strained dignity of a camp counselor in a flood. The herd gets louder.",
     image: "images/ch3_q2_caring.png",
     choices: [
       {
-        text: "Get everyone moving together. No sauce left behind.",
+        text: "Keep everybody together. Nobody gets left behind for spectacle.",
         next: "ch3_q3_caring",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "Keep morale up. This is a fleeing-but-fun situation.",
+        text: "Keep morale up. If we panic ugly, the dinosaurs win twice.",
         next: "ch3_q3_caring",
         points: { vodka: 2, pesto: 1 }
       },
       {
-        text: "Carry the emotional atmosphere on your back somehow.",
+        text: "Carry the emotional weight and keep moving anyway.",
         next: "ch3_q3_caring",
         points: { alfredo: 2, bolognese: 1 }
       }
@@ -676,22 +713,23 @@ const storyTiles = {
 
   ch3_q2_chaotic: {
     chapter: 3,
-    title: "You choose immediate energy.",
-    text: "Puttanesca screams, Arrabbiata screams louder, and somehow this becomes leadership. A dinosaur roars. You have thoughts.",
+    title: "You choose immediate force of personality.",
+    text:
+      "Puttanesca screams. Arrabbiata screams louder. Somehow this becomes a chain of command. A dinosaur roars from the ridge. You are offended by the tone.",
     image: "images/ch3_q2_chaotic.png",
     choices: [
       {
-        text: "Roar back. Respectfully.",
+        text: "Roar back. Not because it helps. Because it matters.",
         next: "ch3_q3_chaotic",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Do something wild and hope it becomes strategy.",
+        text: "Do something reckless enough to become strategy after the fact.",
         next: "ch3_q3_chaotic",
         points: { puttanesca: 2, vodka: 1 }
       },
       {
-        text: "Turn the madness into a bit. Stay cute under pressure.",
+        text: "Turn panic into performance. If we're doomed, stay interesting.",
         next: "ch3_q3_chaotic",
         points: { vodka: 2, pesto: 1 }
       }
@@ -700,22 +738,23 @@ const storyTiles = {
 
   ch3_q3_logical: {
     chapter: 3,
-    title: "The stampede gets closer.",
-    text: "You have seconds. The other sauces look at you like you might actually know what to do, which is rude but flattering.",
+    title: "The stampede closes in.",
+    text:
+      "You have seconds. The other sauces look at you with that awful expression people get when they've decided you seem competent. Flattering, yes. Also deeply inconvenient.",
     image: "images/ch3_q3_logical.png",
     choices: [
       {
-        text: "Pick one clean plan and commit.",
+        text: "Choose one clean plan and commit before doubt gets a vote.",
         next: "ch3_q4_logical",
         points: { carbonara: 2, cacioepepe: 1 }
       },
       {
-        text: "Adapt the plan in real time based on what matters most.",
+        text: "Adjust in motion. The best plan is the one that survives contact.",
         next: "ch3_q4_logical",
         points: { bolognese: 2, vodka: 1 }
       },
       {
-        text: "Remove all unnecessary variables, including some people’s input.",
+        text: "Reduce variables immediately, including some people's contributions.",
         next: "ch3_q4_logical",
         points: { cacioepepe: 2, amatriciana: 1 }
       }
@@ -724,22 +763,23 @@ const storyTiles = {
 
   ch3_q3_caring: {
     chapter: 3,
-    title: "Your group is in motion.",
-    text: "You are running, or the sauce equivalent of running, which is mostly sloshing with intent. Several sauces are emotionally unraveling.",
+    title: "Your group starts moving.",
+    text:
+      "You are running, or the sauce equivalent of running, which is mostly sloshing with purpose while trying not to become a tragedy. Several sauces are one bad sentence away from losing it.",
     image: "images/ch3_q3_caring.png",
     choices: [
       {
-        text: "Talk everyone through it. Calm is contagious.",
+        text: "Talk them through it. Calm is contagious if repeated clearly enough.",
         next: "ch3_q4_caring",
         points: { marinara: 2, bolognese: 1 }
       },
       {
-        text: "Offer comfort while also moving. Multitasking queen.",
+        text: "Offer comfort while moving. Softness is not the same as stopping.",
         next: "ch3_q4_caring",
         points: { alfredo: 2, marinara: 1 }
       },
       {
-        text: "Make it a little funny so nobody fully loses it.",
+        text: "Keep it funny enough that fear can't fully take over.",
         next: "ch3_q4_caring",
         points: { vodka: 2, pesto: 1 }
       }
@@ -748,22 +788,23 @@ const storyTiles = {
 
   ch3_q3_chaotic: {
     chapter: 3,
-    title: "The scene is beyond manageable.",
-    text: "One dinosaur has knocked over a basil display. Another appears spiritually against you. Your adrenaline is now the main ingredient.",
+    title: "The scene becomes unmanageable.",
+    text:
+      "One dinosaur has destroyed the basil display. Another appears to dislike you personally. Your adrenaline now has a point of view and several suggestions.",
     image: "images/ch3_q3_chaotic.png",
     choices: [
       {
-        text: "Charge the moment head-on.",
+        text: "Go straight at the problem and let force sort the details later.",
         next: "ch3_q4_chaotic",
         points: { amatriciana: 2, arrabbiata: 1 }
       },
       {
-        text: "Improvise something insane but memorable.",
+        text: "Improvise something deranged enough to change the odds.",
         next: "ch3_q4_chaotic",
         points: { puttanesca: 2, pesto: 1 }
       },
       {
-        text: "Stay loose. Chaos loves me and I love her back.",
+        text: "Stay loose. Chaos recognizes one of its own.",
         next: "ch3_q4_chaotic",
         points: { vodka: 2, puttanesca: 1 }
       }
@@ -772,8 +813,8 @@ const storyTiles = {
 
   ch3_q4_logical: {
     chapter: 3,
-    title: "Under stress, you become...",
-    text: "As the dinosaurs close in, what kind of sauce are you in a crisis?",
+    title: "In a crisis, you become...",
+    text: "The herd is nearly on top of you. Under real pressure, what emerges first?",
     image: "images/ch3_q4_logical.png",
     choices: [
       {
@@ -782,12 +823,12 @@ const storyTiles = {
         points: { carbonara: 2, cacioepepe: 1 }
       },
       {
-        text: "The steady one.",
+        text: "The steady center.",
         next: "ch4_q1",
         points: { bolognese: 2, marinara: 1 }
       },
       {
-        text: "The one who cuts through the nonsense.",
+        text: "The one who cuts through nonsense with a clean blade.",
         next: "ch4_q1",
         points: { cacioepepe: 1, amatriciana: 2 }
       }
@@ -796,8 +837,8 @@ const storyTiles = {
 
   ch3_q4_caring: {
     chapter: 3,
-    title: "Under stress, you become...",
-    text: "As the dinosaurs close in, what kind of sauce are you in a crisis?",
+    title: "In a crisis, you become...",
+    text: "The herd is nearly on top of you. Under real pressure, what emerges first?",
     image: "images/ch3_q4_caring.png",
     choices: [
       {
@@ -806,12 +847,12 @@ const storyTiles = {
         points: { alfredo: 2, marinara: 1 }
       },
       {
-        text: "The emotional support with a plan.",
+        text: "The emotional support with an actual plan.",
         next: "ch4_q1",
         points: { marinara: 2, bolognese: 1 }
       },
       {
-        text: "The one keeping the vibe from fully collapsing.",
+        text: "The one keeping the whole vibe from falling into a hole.",
         next: "ch4_q1",
         points: { vodka: 2, pesto: 1 }
       }
@@ -820,22 +861,22 @@ const storyTiles = {
 
   ch3_q4_chaotic: {
     chapter: 3,
-    title: "Under stress, you become...",
-    text: "As the dinosaurs close in, what kind of sauce are you in a crisis?",
+    title: "In a crisis, you become...",
+    text: "The herd is nearly on top of you. Under real pressure, what emerges first?",
     image: "images/ch3_q4_chaotic.png",
     choices: [
       {
-        text: "The fire alarm with opinions.",
+        text: "The alarm bell with opinions.",
         next: "ch4_q1",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "The wildcard.",
+        text: "The wildcard nobody can plan around.",
         next: "ch4_q1",
         points: { puttanesca: 2, vodka: 1 }
       },
       {
-        text: "The one weirdly thriving in the nonsense.",
+        text: "The one weirdly alive in the middle of the nonsense.",
         next: "ch4_q1",
         points: { vodka: 2, puttanesca: 1, pesto: 1 }
       }
@@ -847,22 +888,23 @@ const storyTiles = {
   // =========================
   ch4_q1: {
     chapter: 4,
-    title: "Chapter 4: The sky boils.",
-    text: "The dinosaurs look up. You look up. The heavens open. It is not meteors. It is massive boiling pasta falling from the sky in soft, terrible silence. This is extinction, but carb-based.",
+    title: "Chapter 4: The sky begins to boil.",
+    text:
+      "The dinosaurs stop first. Then you do. Above the Sauce Commons, the clouds split open.\nIt is not rain.\nIt is pasta.\nGreat steaming ribbons and spirals of it, falling from the heavens in soft catastrophic silence. Extinction, apparently, can still be carb-forward.",
     image: "images/ch4_q1.png",
     choices: [
       {
-        text: "Protect the others. This is not how the group ends.",
+        text: "Protect the others. The world can end later.",
         next: "ch4_q2_connection",
         points: { marinara: 2, alfredo: 1, bolognese: 1 }
       },
       {
-        text: "Lock in. There has to be one clean way through this.",
+        text: "Focus. Even this has a cleanest possible solution.",
         next: "ch4_q2_perfection",
         points: { carbonara: 2, cacioepepe: 2 }
       },
       {
-        text: "If we are going down, we are going down iconically.",
+        text: "If this is the final act, it had better leave a mark.",
         next: "ch4_q2_impact",
         points: { vodka: 1, pesto: 1, arrabbiata: 1, amatriciana: 1, puttanesca: 1 }
       }
@@ -871,22 +913,23 @@ const storyTiles = {
 
   ch4_q2_connection: {
     chapter: 4,
-    title: "You choose tenderness during the noodle apocalypse.",
-    text: "Around you, sauces are slipping, spiraling, and having last-minute character development. You realize your first instinct is not self-preservation. It is people.",
+    title: "You choose tenderness at the edge of absurdity.",
+    text:
+      "Around you, sauces slip, spiral, confess things, and undergo last-minute character development. Your first instinct is not self-preservation. It is checking who looks most alone.",
     image: "images/ch4_q2_connection.png",
     choices: [
       {
-        text: "Gather everyone close. We face the pasta together.",
+        text: "Gather everybody close. If we go through this, we go through it together.",
         next: "ch4_q3_connection",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "Check who needs comfort most and go there first.",
+        text: "Go straight to the person handling it worst and stay there.",
         next: "ch4_q3_connection",
         points: { alfredo: 2, marinara: 1 }
       },
       {
-        text: "Hold the center. Be the calm thing in the chaos.",
+        text: "Hold the center and make yourself useful to everybody at once.",
         next: "ch4_q3_connection",
         points: { bolognese: 2, marinara: 1 }
       }
@@ -895,22 +938,23 @@ const storyTiles = {
 
   ch4_q2_perfection: {
     chapter: 4,
-    title: "You choose standards at the end of the world.",
-    text: "Pasta is falling from the literal sky and somehow you are still thinking about timing, execution, and whether everyone else is making this harder than it needs to be.",
+    title: "You choose standards during the apocalypse.",
+    text:
+      "Pasta falls from the sky and still, somehow, you are thinking about timing, execution, and whether everyone else is making the whole thing messier than necessary.",
     image: "images/ch4_q2_perfection.png",
     choices: [
       {
-        text: "Find the exact route to survival and take it.",
+        text: "Identify the exact route through the chaos and take it without hesitation.",
         next: "ch4_q3_perfection",
         points: { carbonara: 2, bolognese: 1 }
       },
       {
-        text: "Strip the problem to its essentials.",
+        text: "Reduce the problem to essentials. The rest is decorative panic.",
         next: "ch4_q3_perfection",
         points: { cacioepepe: 2, carbonara: 1 }
       },
       {
-        text: "Lead decisively. There is no time for softness.",
+        text: "Lead decisively. Softness can file a complaint afterward.",
         next: "ch4_q3_perfection",
         points: { amatriciana: 2, carbonara: 1 }
       }
@@ -920,21 +964,22 @@ const storyTiles = {
   ch4_q2_impact: {
     chapter: 4,
     title: "You choose drama, art, or both.",
-    text: "The world is ending in a frankly gorgeous way. Giant pasta sheets drift like fate. You become aware that your final move could be memorable.",
+    text:
+      "The end of the world is, annoyingly, gorgeous. Sheets of pasta drift like linen curtains in a doomed theatre. If this is your last move, you are determined that somebody remembers it correctly.",
     image: "images/ch4_q2_impact.png",
     choices: [
       {
-        text: "Say something iconic and emotionally devastating.",
+        text: "Say something cutting enough to survive as a quote.",
         next: "ch4_q3_impact",
         points: { arrabbiata: 2, amatriciana: 1 }
       },
       {
-        text: "Turn this into performance art somehow.",
+        text: "Turn the catastrophe into composition.",
         next: "ch4_q3_impact",
         points: { pesto: 2, vodka: 1 }
       },
       {
-        text: "Do something bizarre enough to become legend.",
+        text: "Do something so strange it becomes folklore by dessert.",
         next: "ch4_q3_impact",
         points: { puttanesca: 2, vodka: 1 }
       }
@@ -943,22 +988,23 @@ const storyTiles = {
 
   ch4_q3_connection: {
     chapter: 4,
-    title: "The world dissolves into steam.",
-    text: "Then, suddenly: quiet. The dinosaurs are gone. The sky clears. You realize you have survived, somehow, and you are being lifted gently toward a waiting plate.",
+    title: "Then: steam, silence, survival.",
+    text:
+      "The impact never quite arrives. The sky clears. The dinosaurs are gone as if they have been edited out for pacing. A human hand lifts you gently toward a waiting plate. Against all logic, you made it.",
     image: "images/ch4_q3_connection.png",
     choices: [
       {
-        text: "I hope they feel cared for when they taste me.",
+        text: "I hope whoever tastes me feels taken care of.",
         next: "ch4_q4_connection",
         points: { marinara: 2, alfredo: 1 }
       },
       {
-        text: "I hope I make someone feel okay again.",
+        text: "I hope I make somebody's whole night easier to carry.",
         next: "ch4_q4_connection",
         points: { alfredo: 2 }
       },
       {
-        text: "I hope this meal means something, quietly.",
+        text: "I hope I mean more than I say out loud.",
         next: "ch4_q4_connection",
         points: { bolognese: 2, marinara: 1 }
       }
@@ -968,21 +1014,22 @@ const storyTiles = {
   ch4_q3_perfection: {
     chapter: 4,
     title: "You survive into presentation.",
-    text: "The apocalypse ends not with a scream, but with plating. A human hand twirls pasta. You are arranged with intent. This is your final form.",
+    text:
+      "The apocalypse resolves into plating with humiliating elegance. Pasta is twirled. Edges are cleaned. You are arranged with intention. This, at last, is a problem worthy of your attention.",
     image: "images/ch4_q3_perfection.png",
     choices: [
       {
-        text: "I need this to be correct.",
+        text: "It has to be correct.",
         next: "ch4_q4_perfection",
         points: { carbonara: 2, cacioepepe: 1 }
       },
       {
-        text: "I need this to be elegant.",
+        text: "It has to be elegant.",
         next: "ch4_q4_perfection",
         points: { cacioepepe: 2, carbonara: 1 }
       },
       {
-        text: "I need this to hold up under scrutiny.",
+        text: "It has to withstand scrutiny from people I do not respect.",
         next: "ch4_q4_perfection",
         points: { bolognese: 2, carbonara: 1 }
       }
@@ -992,21 +1039,22 @@ const storyTiles = {
   ch4_q3_impact: {
     chapter: 4,
     title: "You survive into legend.",
-    text: "The boiling pasta settles. The scene hard-cuts to plating like the budget ran out. You are now on a dish, glistening with destiny and mild delusion.",
+    text:
+      "The falling pasta settles. Reality hard-cuts to plating like the budget ran out. You are now on a finished dish, shining with destiny, seasoning, and a small amount of self-mythology.",
     image: "images/ch4_q3_impact.png",
     choices: [
       {
-        text: "I need them to remember me.",
+        text: "I need them to remember me even if they cannot explain why.",
         next: "ch4_q4_impact",
         points: { arrabbiata: 2, amatriciana: 1, vodka: 1 }
       },
       {
-        text: "I need this to feel like me.",
+        text: "I need this to feel unmistakably like me.",
         next: "ch4_q4_impact",
         points: { pesto: 2, puttanesca: 1 }
       },
       {
-        text: "I need this to absolutely hit.",
+        text: "I need this to hit immediately and linger after.",
         next: "ch4_q4_impact",
         points: { vodka: 2, amatriciana: 1 }
       }
@@ -1016,7 +1064,8 @@ const storyTiles = {
   ch4_q4_connection: {
     chapter: 4,
     title: "The plate arrives.",
-    text: "A fork hovers above you. This is what you were made for. What matters most in your final moment?",
+    text:
+      "A fork hovers above you. This is the moment every simmer, spill, and miracle was moving toward. At the very end, what matters most?",
     image: "images/ch4_q4_connection.png",
     choices: [
       {
@@ -1040,7 +1089,8 @@ const storyTiles = {
   ch4_q4_perfection: {
     chapter: 4,
     title: "The plate arrives.",
-    text: "A fork hovers above you. This is what you were made for. What matters most in your final moment?",
+    text:
+      "A fork hovers above you. This is the moment every simmer, spill, and miracle was moving toward. At the very end, what matters most?",
     image: "images/ch4_q4_perfection.png",
     choices: [
       {
@@ -1054,7 +1104,7 @@ const storyTiles = {
         points: { cacioepepe: 2, carbonara: 1 }
       },
       {
-        text: "Holding your standard to the end.",
+        text: "Holding the standard all the way through.",
         next: "result",
         points: { carbonara: 1, bolognese: 2 }
       }
@@ -1064,7 +1114,8 @@ const storyTiles = {
   ch4_q4_impact: {
     chapter: 4,
     title: "The plate arrives.",
-    text: "A fork hovers above you. This is what you were made for. What matters most in your final moment?",
+    text:
+      "A fork hovers above you. This is the moment every simmer, spill, and miracle was moving toward. At the very end, what matters most?",
     image: "images/ch4_q4_impact.png",
     choices: [
       {
